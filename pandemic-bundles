@@ -1,0 +1,68 @@
+[a]
+source = https://github.com/vim-scripts/a.vim
+type = git
+
+[lusty]
+source = https://github.com/sjbach/lusty
+type = git
+
+[easymotion]
+source = https://github.com/Lokaltog/vim-easymotion.git
+type = git
+
+[textobj-word-column]
+source = https://github.com/coderifous/textobj-word-column.vim
+type = git
+
+[mw-utils]
+source = https://github.com/MarcWeber/vim-addon-mw-utils.git
+type = git
+
+[tlib]
+source = https://github.com/tomtom/tlib_vim.git
+type = git
+
+[indentLine]
+source = https://github.com/Yggdroot/indentLine.git
+type = git
+
+[lucius]
+source = https://github.com/jonathanfilip/vim-lucius
+type = git
+
+[tabular]
+source = https://github.com/godlygeek/tabular.git
+type = git
+
+[neocomplcache]
+source = https://github.com/Shougo/neocomplcache.git
+type = git
+
+[conky-syntax]
+source = https://github.com/smancill/conky-syntax.vim
+type = git
+
+[nerdtree]
+source = https://github.com/scrooloose/nerdtree.git
+type = git
+
+[jpythonfold]
+source = https://github.com/vim-scripts/jpythonfold.vim
+type = git
+
+[verilog_systemverilog]
+source = https://github.com/vim-scripts/verilog_systemverilog.vim
+type = git
+
+[guicolorscheme]
+source = https://github.com/vim-scripts/guicolorscheme.vim.git
+type = git
+
+[matchit]
+source = https://github.com/graudeejs/vim-matchit
+type = git
+
+[taglist]
+source = https://github.com/vim-scripts/taglist.vim.git
+type = git
+
