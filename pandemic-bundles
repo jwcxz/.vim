@@ -6,8 +6,8 @@ type = git
 source = https://github.com/sjbach/lusty
 type = git
 
-[easymotion]
-source = https://github.com/Lokaltog/vim-easymotion.git
+[jpythonfold]
+source = https://github.com/vim-scripts/jpythonfold.vim
 type = git
 
 [textobj-word-column]
@@ -46,8 +46,8 @@ type = git
 source = https://github.com/scrooloose/nerdtree.git
 type = git
 
-[jpythonfold]
-source = https://github.com/vim-scripts/jpythonfold.vim
+[easymotion]
+source = https://github.com/Lokaltog/vim-easymotion.git
 type = git
 
 [verilog_systemverilog]
@@ -60,6 +60,10 @@ type = git
 
 [matchit]
 source = https://github.com/graudeejs/vim-matchit
+type = git
+
+[pathogen]
+source = https://github.com/tpope/vim-pathogen
 type = git
 
 [taglist]

@@ -4,6 +4,7 @@
 " see especially the key mappings section
 " also, I use ack instead of grep, so if vimgrep breaks, that's why (grepprg)
 
+runtime bundle.remote/pathogen/autoload/pathogen.vim
 execute pathogen#infect('bundle.remote/{}')
 execute pathogen#infect('bundle.local/{}')
 execute pathogen#helptags()
