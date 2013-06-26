@@ -99,8 +99,15 @@ set grepprg=ack\ -a
     nnoremap ;aF   :NERDTreeFind<CR>
 
     " taglist
-        nnoremap <silent> <F9> :Tlist<CR>
-        nnoremap ;aT :TlistOpen
+    nnoremap <silent> <F9> :Tlist<CR>
+    nnoremap ;aT :TlistOpen
+
+    " Xorg paste escape codes
+    map <ESC>[200~ :set paste<CR>a
+    map <ESC>[201~ :set nopaste<CR>
+    imap <ESC>[200~ <C-O>:set paste<CR>
+    imap <ESC>[201~ <nop>
+    set pastetoggle=<ESC>[201~
 " }}}
 
 " {{{ filetype commands
