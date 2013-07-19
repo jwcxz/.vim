@@ -42,12 +42,16 @@ type = git
 source = https://github.com/smancill/conky-syntax.vim
 type = git
 
-[nerdtree]
-source = https://github.com/scrooloose/nerdtree.git
+[airline]
+source = https://github.com/bling/vim-airline.git
 type = git
 
 [easymotion]
 source = https://github.com/Lokaltog/vim-easymotion.git
+type = git
+
+[unite]
+source = https://github.com/Shougo/unite.vim.git
 type = git
 
 [verilog_systemverilog]
@@ -62,11 +66,15 @@ type = git
 source = https://github.com/graudeejs/vim-matchit
 type = git
 
+[taglist]
+source = https://github.com/vim-scripts/taglist.vim.git
+type = git
+
 [pathogen]
 source = https://github.com/tpope/vim-pathogen
 type = git
 
-[taglist]
-source = https://github.com/vim-scripts/taglist.vim.git
+[nerdtree]
+source = https://github.com/scrooloose/nerdtree.git
 type = git
 

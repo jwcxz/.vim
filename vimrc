@@ -87,12 +87,16 @@ set grepprg=ack\ -a
     noremap <silent> tt :ta 
 
     " buffer and file selection
-    let g:LustyExplorerDefaultMappings = 0
-    noremap ;; :LustyBufferExplorer<CR>
-    noremap ;f :LustyFilesystemExplorerFromHere<CR>
-    noremap ;af :LustyFilesystemExplorer<CR>
-    noremap ;ag :LustyBufferGrep<CR>
-    noremap ;aj :LustyJuggler<CR>
+    "let g:LustyExplorerDefaultMappings = 0
+    "noremap ;; :LustyBufferExplorer<CR>
+    "noremap ;f :LustyFilesystemExplorerFromHere<CR>
+    "noremap ;af :LustyFilesystemExplorer<CR>
+    "noremap ;ag :LustyBufferGrep<CR>
+    "noremap ;aj :LustyJuggler<CR>
+	call unite#filters#matcher_default#use(['matcher_fuzzy'])
+	nnoremap ;; :<C-u>Unite -start-insert buffer<CR>
+	nnoremap ;f :<C-u>Unite -start-insert file<CR>
+	nnoremap ;af :<C-u>Unite -start-insert file<CR>
 
     " tree view
     nnoremap <F10> :NERDTreeToggle<CR>
