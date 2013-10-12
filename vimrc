@@ -17,7 +17,7 @@ au BufWritePost *.py silent! !ctags -R &
 
 autocmd!
 " stop vim from pushing # to indent level 0 on python files
-autocmd Filetype python set cms=#%s | inoremap # X<C-H>#
+autocmd Filetype python set cms=#%s | inoremap # X<C-h>#
 " }}}
 
 " {{{ general behavior 
@@ -76,8 +76,8 @@ let mapleader='\'
 
     " C-{hjkl} resize windows
     map <silent> <C-h> <C-w><
-    map <silent> <C-j> <C-W>-
-    map <silent> <C-k> <C-W>+
+    map <silent> <C-j> <C-w>-
+    map <silent> <C-k> <C-w>+
     map <silent> <C-l> <C-w>>
 
     " C-{n,p} move between bufers
@@ -87,8 +87,8 @@ let mapleader='\'
     " ; is C-w, ;, is ,
     noremap <silent> ,  ;
     noremap <silent> ;, ,
-    noremap <silent> ;  <C-W>
-    noremap <silent> ;] <C-W><C-]>
+    noremap <silent> ;  <C-w>
+    noremap <silent> ;] <C-w><C-]>
 
     " alt-{n,p} move between tabs, alt-t creates a new tab, alt-c closes one
     noremap <silent> <Esc>n :tabnext<CR>
@@ -130,7 +130,7 @@ let mapleader='\'
     " Xorg paste escape codes
     map <ESC>[200~ :set paste<CR>a
     map <ESC>[201~ :set nopaste<CR>
-    imap <ESC>[200~ <C-O>:set paste<CR>
+    imap <ESC>[200~ <C-o>:set paste<CR>
     imap <ESC>[201~ <nop>
     set pastetoggle=<ESC>[201~
 " }}}
