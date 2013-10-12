@@ -57,7 +57,9 @@ set backspace=indent,eol,start
 set ignorecase
 set smartcase
 
-set grepprg=ack\ -a
+set grepprg=ack
+
+let mapleader='\'
 " }}}
 
 " {{{ key mappings 
@@ -112,6 +114,17 @@ set grepprg=ack\ -a
     imap <ESC>[200~ <C-O>:set paste<CR>
     imap <ESC>[201~ <nop>
     set pastetoggle=<ESC>[201~
+    
+    " sneak.vim mappings
+    nmap f      <Plug>SneakForward
+    nmap F      <Plug>SneakBackward
+    g:sneak#options.nextprev_f = 0
+    nmap <ESC>f <Plug>SneakForward
+    nmap , <Plug>SneakNext
+    nmap _ <Plug>SneakPrevious
+    xmap , <Plug>VSneakNext
+    xmap _ <Plug>VSneakPrevious
+
 " }}}
 
 " {{{ filetype commands
