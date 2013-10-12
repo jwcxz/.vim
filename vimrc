@@ -63,6 +63,17 @@ let mapleader='\'
 " }}}
 
 " {{{ key mappings 
+    " sneak.vim mappings
+    runtime! plugin/sneak.vim
+    nmap f <Plug>SneakForward
+    nmap F <Plug>SneakBackward
+    let  g:sneak#options.nextprev_f = 0
+    nmap <ESC>f <Plug>SneakForward
+    nmap , <Plug>SneakNext
+    nmap _ <Plug>SneakPrevious
+    xmap , <Plug>VSneakNext
+    xmap _ <Plug>VSneakPrevious
+
     " C-{hjkl} resize windows
     map <silent> <C-h> <C-w><
     map <silent> <C-j> <C-W>-
@@ -88,17 +99,25 @@ let mapleader='\'
     " tt means :ta
     noremap <silent> tt :ta 
 
-    " buffer and file selection
-    "let g:LustyExplorerDefaultMappings = 0
-    "noremap ;; :LustyBufferExplorer<CR>
-    "noremap ;f :LustyFilesystemExplorerFromHere<CR>
-    "noremap ;af :LustyFilesystemExplorer<CR>
-    "noremap ;ag :LustyBufferGrep<CR>
-    "noremap ;aj :LustyJuggler<CR>
+    " unite.vim
+    runtime! plugin/unite.vim
 	call unite#filters#matcher_default#use(['matcher_fuzzy'])
-	nnoremap ;; :<C-u>Unite -start-insert buffer<CR>
-	nnoremap ;f :<C-u>Unite -start-insert file<CR>
-	nnoremap ;af :<C-u>Unite -start-insert file<CR>
+
+	autocmd FileType unite call s:unite_custom_settings()
+	function! s:unite_custom_settings() "{{{
+        nmap <buffer> <ESC>     <Plug>(unite_all_exit)
+        nmap <buffer> ;c        <Plug>(unite_all_exit)
+        nmap <buffer> '         <Plug>(unite_quick_match_default_action)
+
+        imap <buffer> <TAB>     <Plug>(unite_select_next_line)
+        imap <buffer> '         <Plug>(unite_quick_match_default_action)
+        imap <buffer> <C-o>     <ESC><Plug>(unite_all_exit)
+        imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
+	endfunction "}}}
+
+	nnoremap <silent> ;;  :<C-u>Unite -start-insert buffer<CR>
+	nnoremap <silent> ;f  :<C-u>Unite -start-insert file<CR>
+	nnoremap <silent> ;r  :<C-u>Unite -start-insert file_rec/async<CR>
 
     " tree view
     nnoremap <F10> :NERDTreeToggle<CR>
@@ -114,17 +133,6 @@ let mapleader='\'
     imap <ESC>[200~ <C-O>:set paste<CR>
     imap <ESC>[201~ <nop>
     set pastetoggle=<ESC>[201~
-    
-    " sneak.vim mappings
-    nmap f      <Plug>SneakForward
-    nmap F      <Plug>SneakBackward
-    g:sneak#options.nextprev_f = 0
-    nmap <ESC>f <Plug>SneakForward
-    nmap , <Plug>SneakNext
-    nmap _ <Plug>SneakPrevious
-    xmap , <Plug>VSneakNext
-    xmap _ <Plug>VSneakPrevious
-
 " }}}
 
 " {{{ filetype commands
