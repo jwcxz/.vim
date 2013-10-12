@@ -10,10 +10,10 @@ execute pathogen#infect('bundle.local/{}')
 execute pathogen#helptags()
 
 " {{{ per-filetype hooks and actions
-au BufWritePost *.c silent! !ctags -R &
-au BufWritePost *.h silent! !ctags -R &
+au BufWritePost *.c   silent! !ctags -R &
+au BufWritePost *.h   silent! !ctags -R &
 au BufWritePost *.cpp silent! !ctags -R &
-au BufWritePost *.py silent! !ctags -R &
+au BufWritePost *.py  silent! !ctags -R &
 
 autocmd!
 " stop vim from pushing # to indent level 0 on python files
@@ -22,7 +22,7 @@ autocmd Filetype python set cms=#%s | inoremap # X<C-h>#
 
 " {{{ general behavior 
 set nocompatible
-set isk=a-z,A-Z,48-57,_,.,-,>
+set isk=a-z,A-Z,48-57,_
 set fdm=syntax
 set foldlevelstart=20
 set mouse=nvcr
@@ -65,14 +65,14 @@ let mapleader='\'
 " {{{ key mappings 
     " sneak.vim mappings
     runtime! plugin/sneak.vim
-    nmap f <Plug>SneakForward
-    nmap F <Plug>SneakBackward
     let  g:sneak#options.nextprev_f = 0
+    nmap f      <Plug>SneakForward
+    nmap F      <Plug>SneakBackward
     nmap <ESC>f <Plug>SneakForward
-    nmap , <Plug>SneakNext
-    nmap _ <Plug>SneakPrevious
-    xmap , <Plug>VSneakNext
-    xmap _ <Plug>VSneakPrevious
+    nmap ,      <Plug>SneakNext
+    nmap _      <Plug>SneakPrevious
+    xmap ,      <Plug>VSneakNext
+    xmap _      <Plug>VSneakPrevious
 
     " C-{hjkl} resize windows
     map <silent> <C-h> <C-w><
@@ -85,8 +85,8 @@ let mapleader='\'
     noremap <silent> <C-n> :bn<CR>
 
     " ; is C-w, ;, is ,
-    noremap <silent> ,  ;
-    noremap <silent> ;, ,
+    "noremap <silent> ,  ;
+    "noremap <silent> ;, ,
     noremap <silent> ;  <C-w>
     noremap <silent> ;] <C-w><C-]>
 
@@ -105,19 +105,19 @@ let mapleader='\'
 
 	autocmd FileType unite call s:unite_custom_settings()
 	function! s:unite_custom_settings() "{{{
-        nmap <buffer> <ESC>     <Plug>(unite_all_exit)
-        nmap <buffer> ;c        <Plug>(unite_all_exit)
-        nmap <buffer> '         <Plug>(unite_quick_match_default_action)
+        nmap <buffer> <ESC> <Plug>(unite_all_exit)
+        nmap <buffer> ;c    <Plug>(unite_all_exit)
+        nmap <buffer> '     <Plug>(unite_quick_match_default_action)
 
-        imap <buffer> <TAB>     <Plug>(unite_select_next_line)
-        imap <buffer> '         <Plug>(unite_quick_match_default_action)
-        imap <buffer> <C-o>     <ESC><Plug>(unite_all_exit)
-        imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
+        imap <buffer> <TAB> <Plug>(unite_select_next_line)
+        imap <buffer> '     <Plug>(unite_quick_match_default_action)
+        imap <buffer> <C-o> <ESC><Plug>(unite_all_exit)
+        imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
 	endfunction "}}}
 
-	nnoremap <silent> ;;  :<C-u>Unite -start-insert buffer<CR>
-	nnoremap <silent> ;f  :<C-u>Unite -start-insert file<CR>
-	nnoremap <silent> ;r  :<C-u>Unite -start-insert file_rec/async<CR>
+	nnoremap <silent> ;; :<C-u>Unite -start-insert buffer<CR>
+	nnoremap <silent> ;f :<C-u>Unite -start-insert file<CR>
+	nnoremap <silent> ;r :<C-u>Unite -start-insert file_rec/async<CR>
 
     " tree view
     nnoremap <F10> :NERDTreeToggle<CR>
@@ -125,14 +125,14 @@ let mapleader='\'
 
     " taglist
     nnoremap <silent> <F9> :Tlist<CR>
-    nnoremap ;aT :TlistOpen
+    nnoremap <silent> ;aT  :TlistOpen
 
     " Xorg paste escape codes
-    map <ESC>[200~ :set paste<CR>a
-    map <ESC>[201~ :set nopaste<CR>
+    map  <ESC>[200~ :set paste<CR>a
+    map  <ESC>[201~ :set nopaste<CR>
     imap <ESC>[200~ <C-o>:set paste<CR>
     imap <ESC>[201~ <nop>
-    set pastetoggle=<ESC>[201~
+    set  pastetoggle=<ESC>[201~
 " }}}
 
 " {{{ filetype commands
@@ -194,7 +194,7 @@ hi! link StatusLine  NStatusLine
 hi! link slReadOnly  Error
 hi! link slSep       NslSep
 
-set statusline=\ %(%m\ %)%f%=%#slReadOnly#%r%*%y\ %l%#slSep#/%*%L%#slSep#\|%*%c%*\ %p%*%#slSep#%%%*
+"set statusline=\ %(%m\ %)%f%=%#slReadOnly#%r%*%y\ %l%#slSep#/%*%L%#slSep#\|%*%c%*\ %p%*%#slSep#%%%*
 
 " when we're in insert mode, the status line color will change
 au InsertEnter * hi! link StatusLine IStatusLine | hi! link slSep IslSep
@@ -230,10 +230,10 @@ au InsertLeave * hi! link StatusLine NStatusLine | hi! link slSep NslSep
         let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
         " Plugin key-mappings.
-        imap <C-k>     <Plug>(neocomplcache_snippets_expand)
-        smap <C-k>     <Plug>(neocomplcache_snippets_expand)
-        inoremap <expr><C-g>     neocomplcache#undo_completion()
-        inoremap <expr><C-l>     neocomplcache#complete_common_string()
+        imap <C-k>           <Plug>(neocomplcache_snippets_expand)
+        smap <C-k>           <Plug>(neocomplcache_snippets_expand)
+        inoremap <expr><C-g> neocomplcache#undo_completion()
+        inoremap <expr><C-l> neocomplcache#complete_common_string()
 
         " SuperTab like snippets behavior.
         "imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -245,9 +245,9 @@ au InsertLeave * hi! link StatusLine NStatusLine | hi! link slSep NslSep
         "inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
         " <C-h>, <BS>: close popup and delete backword char.
         inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-        inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-        inoremap <expr><C-y>  neocomplcache#close_popup()
-        inoremap <expr><C-e>  neocomplcache#cancel_popup()
+        inoremap <expr><BS>  neocomplcache#smart_close_popup()."\<C-h>"
+        inoremap <expr><C-y> neocomplcache#close_popup()
+        inoremap <expr><C-e> neocomplcache#cancel_popup()
 
         " AutoComplPop like behavior.
         "let g:neocomplcache_enable_auto_select = 1
@@ -275,13 +275,6 @@ au InsertLeave * hi! link StatusLine NStatusLine | hi! link slSep NslSep
         if has('quickfix')
         set cscopequickfix=s-,c-,d-,i-,t-,e-
         endif
-
-        "cnoreabbrev csa cs add
-        "cnoreabbrev csf cs find
-        "cnoreabbrev csk cs kill
-        "cnoreabbrev csr cs reset
-        "cnoreabbrev css cs show
-        "cnoreabbrev csh cs help
 
         command! -nargs=0 Cscope cs add $VIMSRC/src/cscope.out $VIMSRC/src
     endif
