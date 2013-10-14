@@ -14,10 +14,6 @@ type = git
 source = https://github.com/coderifous/textobj-word-column.vim
 type = git
 
-[indentLine]
-source = https://github.com/Yggdroot/indentLine.git
-type = git
-
 [neocomplcache]
 source = https://github.com/Shougo/neocomplcache.git
 type = git
@@ -42,20 +38,8 @@ type = git
 source = https://github.com/vim-scripts/taglist.vim.git
 type = git
 
-[lusty]
-source = https://github.com/sjbach/lusty
-type = git
-
-[mw-utils]
-source = https://github.com/MarcWeber/vim-addon-mw-utils.git
-type = git
-
 [sneak]
 source = https://github.com/justinmk/vim-sneak
-type = git
-
-[tlib]
-source = https://github.com/tomtom/tlib_vim.git
 type = git
 
 [guicolorscheme]
