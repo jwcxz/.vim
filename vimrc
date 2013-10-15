@@ -66,7 +66,6 @@ let mapleader='\'
     " sneak.vim mappings
     runtime! plugin/sneak.vim
     let  g:sneak#options.nextprev_f = 0
-    nmap f      <Plug>SneakForward
     nmap F      <Plug>SneakBackward
     nmap <ESC>f <Plug>SneakForward
     nmap ,      <Plug>SneakNext
