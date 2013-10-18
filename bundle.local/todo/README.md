@@ -28,3 +28,6 @@ Keybindings are:
     <Leader>/   mark partially done
     <Leader>n   mark not done
     <Leader>m   mark moved
+
+
+![screenshot](https://raw.github.com/jwcxz/.vim/master/bundle.local/todo/todo.png)

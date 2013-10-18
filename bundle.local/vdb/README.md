@@ -18,3 +18,6 @@ Format looks like this:
 Note that two different symbols are defined: `:` and `#`.  It's easy enough to
 add some more.  I use this to define information that I care about and don't
 care about.  This usually goes nicely with `fdm=indent`.
+
+
+![screenshot](https://raw.github.com/jwcxz/.vim/master/bundle.local/vdb/vdb.png)
