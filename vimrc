@@ -73,8 +73,8 @@ let mapleader='\'
     nmap _      <Plug>SneakPrevious
     xmap ,      <Plug>VSneakNext
     xmap _      <Plug>VSneakPrevious
-    unmap s
-    unmap S
+    nunmap s
+    nunmap S
 
     " C-{hjkl} resize windows
     map <silent> <C-h> <C-w><
