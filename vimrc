@@ -65,13 +65,16 @@ let mapleader='\'
 " {{{ key mappings 
     " sneak.vim mappings
     runtime! plugin/sneak.vim
-    let  g:sneak#options.nextprev_f = 0
+    let  g:sneak#nextprev_f = 0
+    let  g:sneak#use_ic_scs = 1
     nmap F      <Plug>SneakBackward
     nmap <ESC>f <Plug>SneakForward
     nmap ,      <Plug>SneakNext
     nmap _      <Plug>SneakPrevious
     xmap ,      <Plug>VSneakNext
     xmap _      <Plug>VSneakPrevious
+    unmap s
+    unmap S
 
     " C-{hjkl} resize windows
     map <silent> <C-h> <C-w><
@@ -116,7 +119,8 @@ let mapleader='\'
 
 	nnoremap <silent> ;; :<C-u>Unite -start-insert buffer<CR>
 	nnoremap <silent> ;f :<C-u>Unite -start-insert file<CR>
-	nnoremap <silent> ;r :<C-u>Unite -start-insert file_rec/async<CR>
+	nnoremap <silent> ;r :<C-u>Unite -start-insert file_rec<CR>
+	nnoremap <silent> ;R :<C-u>Unite -start-insert file_rec/async<CR>
 
     " tree view
     nnoremap <F10> :NERDTreeToggle<CR>

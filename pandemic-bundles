@@ -1,13 +1,13 @@
+[a]
+source = https://github.com/vim-scripts/a.vim
+type = git
+
 [verilog_systemverilog]
 source = https://github.com/vim-scripts/verilog_systemverilog.vim
 type = git
 
-[tabular]
-source = https://github.com/godlygeek/tabular.git
-type = git
-
-[unite]
-source = https://github.com/Shougo/unite.vim.git
+[easymotion]
+source = https://github.com/Lokaltog/vim-easymotion.git
 type = git
 
 [textobj-word-column]
@@ -18,55 +18,55 @@ type = git
 source = https://github.com/Shougo/neocomplcache.git
 type = git
 
-[nerdtree]
-source = https://github.com/scrooloose/nerdtree.git
-type = git
-
-[easymotion]
-source = https://github.com/Lokaltog/vim-easymotion.git
-type = git
-
-[matchit]
-source = https://github.com/graudeejs/vim-matchit
-type = git
-
-[pathogen]
-source = https://github.com/tpope/vim-pathogen
-type = git
-
-[taglist]
-source = https://github.com/vim-scripts/taglist.vim.git
+[vimproc]
+source = https://github.com/Shougo/vimproc.vim
 type = git
 
 [sneak]
 source = https://github.com/justinmk/vim-sneak
 type = git
 
-[guicolorscheme]
-source = https://github.com/vim-scripts/guicolorscheme.vim.git
-type = git
-
-[a]
-source = https://github.com/vim-scripts/a.vim
-type = git
-
-[vimproc]
-source = https://github.com/Shougo/vimproc.vim
+[unite]
+source = https://github.com/Shougo/unite.vim.git
 type = git
 
 [lucius]
 source = https://github.com/jonathanfilip/vim-lucius
 type = git
 
+[tabular]
+source = https://github.com/godlygeek/tabular.git
+type = git
+
 [conky-syntax]
 source = https://github.com/smancill/conky-syntax.vim
 type = git
 
-[airline]
-source = https://github.com/bling/vim-airline.git
+[nerdtree]
+source = https://github.com/scrooloose/nerdtree.git
 type = git
 
 [jpythonfold]
 source = https://github.com/vim-scripts/jpythonfold.vim
+type = git
+
+[guicolorscheme]
+source = https://github.com/vim-scripts/guicolorscheme.vim.git
+type = git
+
+[matchit]
+source = https://github.com/graudeejs/vim-matchit
+type = git
+
+[taglist]
+source = https://github.com/vim-scripts/taglist.vim.git
+type = git
+
+[pathogen]
+source = https://github.com/tpope/vim-pathogen
+type = git
+
+[airline]
+source = https://github.com/bling/vim-airline.git
 type = git
 
