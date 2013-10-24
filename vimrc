@@ -9,12 +9,6 @@ execute pathogen#infect('bundle.remote/{}')
 execute pathogen#infect('bundle.local/{}')
 execute pathogen#helptags()
 
-" {{{ per-filetype hooks and actions
-au BufWritePost *.c   silent! !ctags -R &
-au BufWritePost *.h   silent! !ctags -R &
-au BufWritePost *.cpp silent! !ctags -R &
-au BufWritePost *.py  silent! !ctags -R &
-
 autocmd!
 " stop vim from pushing # to indent level 0 on python files
 autocmd Filetype python set cms=#%s | inoremap # X<C-h>#
