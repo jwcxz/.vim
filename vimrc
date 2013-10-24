@@ -12,6 +12,7 @@ execute pathogen#helptags()
 autocmd!
 " stop vim from pushing # to indent level 0 on python files
 autocmd Filetype python set cms=#%s | inoremap # X<C-h>#
+autocmd Filetype c set grepprg=ack\ --cc
 " }}}
 
 " {{{ general behavior 
@@ -159,13 +160,13 @@ if &term =~ "256"
     hi TabLine      ctermfg=244  ctermbg=238 cterm=underline
     hi TabLineFill  ctermfg=244  ctermbg=238 cterm=underline
 
-    hi NStatusLine  ctermfg=254 ctermbg=237
-    hi NslSep       ctermfg=240 ctermbg=237
+    "hi NStatusLine  ctermfg=254 ctermbg=237
+    "hi NslSep       ctermfg=240 ctermbg=237
 
-    hi IStatusLine  ctermfg=226 ctermbg=237
-    hi IslSep       ctermfg=136 ctermbg=237
+    "hi IStatusLine  ctermfg=226 ctermbg=237
+    "hi IslSep       ctermfg=136 ctermbg=237
     
-    hi StatusLineNC ctermfg=240 ctermbg=234
+    "hi StatusLineNC ctermfg=240 ctermbg=234
 else
     " otherwise, make the default a little less painful
     colorscheme default
@@ -178,24 +179,25 @@ else
     hi PmenuThumb   cterm=none  ctermfg=yellow  ctermbg=yellow
     hi PmenuSbar    cterm=none  ctermfg=cyan    ctermbg=cyan
 
-    hi NStatusLine cterm=bold   ctermfg=yellow  ctermbg=cyan
-    hi NslSep      cterm=bold   ctermfg=yellow  ctermbg=cyan
+    "hi NStatusLine cterm=bold   ctermfg=yellow  ctermbg=cyan
+    "hi NslSep      cterm=bold   ctermfg=yellow  ctermbg=cyan
 
-    hi IStatusLine cterm=bold   ctermfg=red   ctermbg=cyan
-    hi IslSep      cterm=bold   ctermfg=red   ctermbg=cyan
+    "hi IStatusLine cterm=bold   ctermfg=red   ctermbg=cyan
+    "hi IslSep      cterm=bold   ctermfg=red   ctermbg=cyan
 
-    hi StatusLineNC cterm=none  ctermbg=cyan
+    "hi StatusLineNC cterm=none  ctermbg=cyan
 endif
 
-hi! link StatusLine  NStatusLine
-hi! link slReadOnly  Error
-hi! link slSep       NslSep
+" this is taken care of by airline now
+"hi! link StatusLine  NStatusLine
+"hi! link slReadOnly  Error
+"hi! link slSep       NslSep
 
 "set statusline=\ %(%m\ %)%f%=%#slReadOnly#%r%*%y\ %l%#slSep#/%*%L%#slSep#\|%*%c%*\ %p%*%#slSep#%%%*
 
 " when we're in insert mode, the status line color will change
-au InsertEnter * hi! link StatusLine IStatusLine | hi! link slSep IslSep
-au InsertLeave * hi! link StatusLine NStatusLine | hi! link slSep NslSep
+"au InsertEnter * hi! link StatusLine IStatusLine | hi! link slSep IslSep
+"au InsertLeave * hi! link StatusLine NStatusLine | hi! link slSep NslSep
 " }}}
 
 " {{{ neocomplcache
@@ -210,9 +212,9 @@ au InsertLeave * hi! link StatusLine NStatusLine | hi! link slSep NslSep
         " Use smartcase.
         let g:neocomplcache_enable_smart_case = 1
         " Use camel case completion.
-        let g:neocomplcache_enable_camel_case_completion = 1
+        "let g:neocomplcache_enable_camel_case_completion = 1
         " Use underbar completion.
-        let g:neocomplcache_enable_underbar_completion = 1
+        "let g:neocomplcache_enable_underbar_completion = 1
         " Set minimum syntax keyword length.
         let g:neocomplcache_min_syntax_length = 5
         let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
