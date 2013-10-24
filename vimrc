@@ -119,8 +119,8 @@ let mapleader='\'
 
 	nnoremap <silent> ;; :<C-u>Unite -start-insert buffer<CR>
 	nnoremap <silent> ;f :<C-u>Unite -start-insert file<CR>
-	nnoremap <silent> ;r :<C-u>Unite -start-insert file_rec<CR>
-	nnoremap <silent> ;R :<C-u>Unite -start-insert file_rec/async<CR>
+	nnoremap <silent> ;R :<C-u>Unite -start-insert file_rec<CR>
+	nnoremap <silent> ;r :<C-u>Unite -start-insert file_rec/async<CR>
 
     " tree view
     nnoremap <F10> :NERDTreeToggle<CR>
