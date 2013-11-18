@@ -6,8 +6,12 @@ type = git
 source = https://github.com/vim-scripts/verilog_systemverilog.vim
 type = git
 
-[easymotion]
-source = https://github.com/Lokaltog/vim-easymotion.git
+[jpythonfold]
+source = https://github.com/vim-scripts/jpythonfold.vim
+type = git
+
+[logcp]
+source = git://github.com/jwcxz/vim-logcp
 type = git
 
 [textobj-word-column]
@@ -38,6 +42,10 @@ type = git
 source = https://github.com/godlygeek/tabular.git
 type = git
 
+[vdb]
+source = git://github.com/jwcxz/vim-vdb
+type = git
+
 [conky-syntax]
 source = https://github.com/smancill/conky-syntax.vim
 type = git
@@ -46,8 +54,12 @@ type = git
 source = https://github.com/scrooloose/nerdtree.git
 type = git
 
-[jpythonfold]
-source = https://github.com/vim-scripts/jpythonfold.vim
+[easymotion]
+source = https://github.com/Lokaltog/vim-easymotion.git
+type = git
+
+[airline]
+source = https://github.com/bling/vim-airline.git
 type = git
 
 [guicolorscheme]
@@ -58,15 +70,15 @@ type = git
 source = https://github.com/graudeejs/vim-matchit
 type = git
 
-[taglist]
-source = https://github.com/vim-scripts/taglist.vim.git
+[todo]
+source = git://github.com/jwcxz/vim-todo
 type = git
 
 [pathogen]
 source = https://github.com/tpope/vim-pathogen
 type = git
 
-[airline]
-source = https://github.com/bling/vim-airline.git
+[taglist]
+source = https://github.com/vim-scripts/taglist.vim.git
 type = git
 
