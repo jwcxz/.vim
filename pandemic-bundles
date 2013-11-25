@@ -1,53 +1,25 @@
-[a]
-source = https://github.com/vim-scripts/a.vim
-type = git
-
 [verilog_systemverilog]
 source = https://github.com/vim-scripts/verilog_systemverilog.vim
-type = git
-
-[jpythonfold]
-source = https://github.com/vim-scripts/jpythonfold.vim
 type = git
 
 [logcp]
 source = git://github.com/jwcxz/vim-logcp
 type = git
 
-[textobj-word-column]
-source = https://github.com/coderifous/textobj-word-column.vim
-type = git
-
-[neocomplcache]
-source = https://github.com/Shougo/neocomplcache.git
-type = git
-
-[vimproc]
-source = https://github.com/Shougo/vimproc.vim
-type = git
-
-[sneak]
-source = https://github.com/justinmk/vim-sneak
-type = git
-
-[unite]
-source = https://github.com/Shougo/unite.vim.git
-type = git
-
-[lucius]
-source = https://github.com/jonathanfilip/vim-lucius
-type = git
-
 [tabular]
 source = https://github.com/godlygeek/tabular.git
 type = git
 
-[vdb]
-source = git://github.com/jwcxz/vim-vdb
+[todo]
+source = git://github.com/jwcxz/vim-todo
 type = git
 
-[conky-syntax]
-source = https://github.com/smancill/conky-syntax.vim
+[textobj-word-column]
+source = https://github.com/coderifous/textobj-word-column.vim
+type = git
+
+[unite]
+source = https://github.com/Shougo/unite.vim.git
 type = git
 
 [nerdtree]
@@ -58,20 +30,8 @@ type = git
 source = https://github.com/Lokaltog/vim-easymotion.git
 type = git
 
-[airline]
-source = https://github.com/bling/vim-airline.git
-type = git
-
-[guicolorscheme]
-source = https://github.com/vim-scripts/guicolorscheme.vim.git
-type = git
-
 [matchit]
 source = https://github.com/graudeejs/vim-matchit
-type = git
-
-[todo]
-source = git://github.com/jwcxz/vim-todo
 type = git
 
 [pathogen]
@@ -80,5 +40,53 @@ type = git
 
 [taglist]
 source = https://github.com/vim-scripts/taglist.vim.git
+type = git
+
+[youcompleteme]
+source = https://github.com/Valloric/YouCompleteMe
+type = git
+
+[neocomplcache]
+source = https://github.com/Shougo/neocomplcache.git
+type = git
+
+[sneak]
+source = https://github.com/justinmk/vim-sneak
+type = git
+
+[guicolorscheme]
+source = https://github.com/vim-scripts/guicolorscheme.vim.git
+type = git
+
+[a]
+source = https://github.com/vim-scripts/a.vim
+type = git
+
+[neocomplete]
+source = https://github.com/Shougo/neocomplete.git
+type = git
+
+[vimproc]
+source = https://github.com/Shougo/vimproc.vim
+type = git
+
+[lucius]
+source = https://github.com/jonathanfilip/vim-lucius
+type = git
+
+[vdb]
+source = git://github.com/jwcxz/vim-vdb
+type = git
+
+[conky-syntax]
+source = https://github.com/smancill/conky-syntax.vim
+type = git
+
+[airline]
+source = https://github.com/bling/vim-airline.git
+type = git
+
+[jpythonfold]
+source = https://github.com/vim-scripts/jpythonfold.vim
 type = git
 

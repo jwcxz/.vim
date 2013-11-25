@@ -5,6 +5,19 @@
 " also, I use ack instead of grep, so if vimgrep breaks, that's why (grepprg)
 
 runtime bundle.remote/pathogen/autoload/pathogen.vim
+
+let g:pathogen_disabled = []
+
+" choose neocomplete or neocomplcache depending on whether vim was compiled
+" with lua
+if has('lua')
+    let g:completer = 'neocomplete'
+    call add(g:pathogen_disabled, 'neocomplcache')
+else
+    let g:completer = 'neocomplcache'
+    call add(g:pathogen_disabled, 'neocomplete')
+endif
+
 execute pathogen#infect('bundle.remote/{}')
 execute pathogen#infect('bundle.local/{}')
 execute pathogen#helptags()
@@ -160,6 +173,9 @@ if &term =~ "256"
     hi TabLine      ctermfg=244  ctermbg=238 cterm=underline
     hi TabLineFill  ctermfg=244  ctermbg=238 cterm=underline
 
+    hi Folded       ctermfg=187  ctermbg=235 cterm=bold
+    hi FoldColumn   ctermfg=187  ctermbg=235 cterm=bold
+
     "hi NStatusLine  ctermfg=254 ctermbg=237
     "hi NslSep       ctermfg=240 ctermbg=237
 
@@ -200,10 +216,67 @@ endif
 "au InsertLeave * hi! link StatusLine NStatusLine | hi! link slSep NslSep
 " }}}
 
-" {{{ neocomplcache
-    runtime! plugin/neocomplcache.vim
+" {{{ completion
+    if g:completer ==? 'neocomplete'
+        runtime! plugin/neocomplete.vim
 
-    if exists(":NeoComplCacheEnable")
+        NeoCompleteEnable
+
+        " Disable AutoComplPop.
+        let g:acp_enableAtStartup = 0
+        " Use neocomplcache.
+        let g:neocomplete#enable_at_startup = 1
+        " Use smartcase.
+        let g:neocomplete#enable_smart_case = 1
+        " Use camel case completion.
+        "let g:neocomplcache_enable_camel_case_completion = 1
+        " Use underbar completion.
+        "let g:neocomplcache_enable_underbar_completion = 1
+        " Set minimum syntax keyword length.
+        let g:neocomplete#sources#syntax#min_keyword_length = 5
+        let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+        " Define dictionary.
+        let g:neocomplete#sources#dictionary#dictionaries = {'default' : ''}
+
+        " Define keyword.
+        if !exists('g:neocomplete#keyword_patterns')
+            let g:neocomplete#keyword_patterns = {}
+        endif
+        let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+        " Plugin key-mappings.
+        "imap <C-k>           <Plug>(neocomplcache_snippets_expand)
+        "smap <C-k>           <Plug>(neocomplcache_snippets_expand)
+        inoremap <expr><C-g> neocomplete#undo_completion()
+        inoremap <expr><C-l> neocomplete#complete_common_string()
+
+        " SuperTab like snippets behavior.
+        "imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+
+        " Recommended key-mappings.
+        " <CR>: close popup and save indent.
+        inoremap <expr><CR>  neocomplete#smart_close_popup() ."\<CR>"
+        " <TAB>: completion.
+        "inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+        " <C-h>, <BS>: close popup and delete backword char.
+        inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+        inoremap <expr><BS>  neocomplete#smart_close_popup()."\<C-h>"
+        inoremap <expr><C-y> neocomplete#close_popup()
+        inoremap <expr><C-e> neocomplete#cancel_popup()
+
+        " AutoComplPop like behavior.
+        "let g:neocomplcache_enable_auto_select = 1
+
+        " Enable omni completion.
+        autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+        autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+        autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+        autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+        autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+    else
+        runtime! plugin/neocomplcache.vim
+
         NeoComplCacheEnable
         " Disable AutoComplPop.
         let g:acp_enableAtStartup = 0
