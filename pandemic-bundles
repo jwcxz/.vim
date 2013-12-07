@@ -1,92 +1,92 @@
-[verilog_systemverilog]
-source = https://github.com/vim-scripts/verilog_systemverilog.vim
-type = git
-
-[logcp]
-source = git://github.com/jwcxz/vim-logcp
-type = git
-
-[tabular]
-source = https://github.com/godlygeek/tabular.git
-type = git
-
-[todo]
-source = git://github.com/jwcxz/vim-todo
-type = git
-
-[textobj-word-column]
-source = https://github.com/coderifous/textobj-word-column.vim
-type = git
-
-[unite]
-source = https://github.com/Shougo/unite.vim.git
-type = git
-
-[nerdtree]
-source = https://github.com/scrooloose/nerdtree.git
-type = git
-
-[easymotion]
-source = https://github.com/Lokaltog/vim-easymotion.git
-type = git
-
-[matchit]
-source = https://github.com/graudeejs/vim-matchit
-type = git
-
-[pathogen]
-source = https://github.com/tpope/vim-pathogen
-type = git
-
-[taglist]
-source = https://github.com/vim-scripts/taglist.vim.git
-type = git
-
-[youcompleteme]
-source = https://github.com/Valloric/YouCompleteMe
-type = git
-
-[neocomplcache]
-source = https://github.com/Shougo/neocomplcache.git
-type = git
-
-[sneak]
-source = https://github.com/justinmk/vim-sneak
-type = git
-
-[guicolorscheme]
-source = https://github.com/vim-scripts/guicolorscheme.vim.git
-type = git
-
 [a]
 source = https://github.com/vim-scripts/a.vim
 type = git
 
-[neocomplete]
-source = https://github.com/Shougo/neocomplete.git
-type = git
-
-[vimproc]
-source = https://github.com/Shougo/vimproc.vim
-type = git
-
-[lucius]
-source = https://github.com/jonathanfilip/vim-lucius
-type = git
-
-[vdb]
-source = git://github.com/jwcxz/vim-vdb
-type = git
-
-[conky-syntax]
-source = https://github.com/smancill/conky-syntax.vim
+[ag]
+source = https://github.com/rking/ag.vim
 type = git
 
 [airline]
 source = https://github.com/bling/vim-airline.git
 type = git
 
+[conky-syntax]
+source = https://github.com/smancill/conky-syntax.vim
+type = git
+
+[easymotion]
+source = https://github.com/Lokaltog/vim-easymotion.git
+type = git
+
+[guicolorscheme]
+source = https://github.com/vim-scripts/guicolorscheme.vim.git
+type = git
+
 [jpythonfold]
 source = https://github.com/vim-scripts/jpythonfold.vim
+type = git
+
+[logcp]
+source = git://github.com/jwcxz/vim-logcp
+type = git
+
+[lucius]
+source = https://github.com/jonathanfilip/vim-lucius
+type = git
+
+[matchit]
+source = https://github.com/graudeejs/vim-matchit
+type = git
+
+[neocomplcache]
+source = https://github.com/Shougo/neocomplcache.git
+type = git
+
+[neocomplete]
+source = https://github.com/Shougo/neocomplete.git
+type = git
+
+[nerdtree]
+source = https://github.com/scrooloose/nerdtree.git
+type = git
+
+[pathogen]
+source = https://github.com/tpope/vim-pathogen
+type = git
+
+[sneak]
+source = https://github.com/justinmk/vim-sneak
+type = git
+
+[tabular]
+source = https://github.com/godlygeek/tabular.git
+type = git
+
+[taglist]
+source = https://github.com/vim-scripts/taglist.vim.git
+type = git
+
+[textobj-word-column]
+source = https://github.com/coderifous/textobj-word-column.vim
+type = git
+
+[todo]
+source = git://github.com/jwcxz/vim-todo
+type = git
+
+[unite]
+source = https://github.com/Shougo/unite.vim.git
+type = git
+
+[vdb]
+source = git://github.com/jwcxz/vim-vdb
+type = git
+
+[verilog_systemverilog]
+source = https://github.com/vim-scripts/verilog_systemverilog.vim
+type = git
+
+[vimproc]
+source = https://github.com/Shougo/vimproc.vim
 type = git
 
