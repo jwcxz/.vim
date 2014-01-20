@@ -126,6 +126,7 @@ let mapleader='\'
 	endfunction "}}}
 
 	nnoremap <silent> ;; :<C-u>Unite -start-insert buffer<CR>
+    nnoremap <silent> ;t :<C-u>Unite -start-insert tag<CR>
 	nnoremap <silent> ;f :<C-u>Unite -start-insert file<CR>
 	nnoremap <silent> ;R :<C-u>Unite -start-insert file_rec<CR>
 	nnoremap <silent> ;r :<C-u>Unite -start-insert file_rec/async<CR>

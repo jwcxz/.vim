@@ -54,6 +54,10 @@ type = git
 source = https://github.com/tpope/vim-pathogen
 type = git
 
+[recover]
+source = https://github.com/chrisbra/Recover.vim
+type = git
+
 [sneak]
 source = https://github.com/justinmk/vim-sneak
 type = git
@@ -76,6 +80,10 @@ type = git
 
 [unite]
 source = https://github.com/Shougo/unite.vim.git
+type = git
+
+[unite-tag]
+source = https://github.com/tsukkee/unite-tag
 type = git
 
 [vdb]
