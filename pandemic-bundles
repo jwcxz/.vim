@@ -94,6 +94,10 @@ type = git
 source = https://github.com/vim-scripts/verilog_systemverilog.vim
 type = git
 
+[vim-dispatch]
+source = https://github.com/tpope/vim-dispatch
+type = git
+
 [vimproc]
 source = https://github.com/Shougo/vimproc.vim
 type = git
