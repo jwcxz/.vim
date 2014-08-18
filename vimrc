@@ -11,15 +11,16 @@ endif
 
 let g:cfg_vimcfg_dir = expand('~/.vim')
 
+" {{{ autocomd
 autocmd!
-" stop vim from pushing # to indent level 0 on python files
-autocmd Filetype python set cms=#%s | inoremap # X<C-h>#
-autocmd Filetype c set grepprg=ag\ --cc
+autocmd Filetype python set foldmethod=syntax | set cms=#%s | inoremap # X<C-h>#
+autocmd Filetype c,cpp set grepprg=ag\ --cc | set foldmethod=syntax
+autocmd Filetype tex noremap K :w<CR>:!pdflatex -halt-on-error %<CR>
+autocmd Filetype vim set foldmethod=marker
 " }}}
 
 " {{{ general behavior 
 set isk=a-z,A-Z,48-57,_
-set foldlevelstart=20
 set history=50
 set ttyfast
 set hidden
@@ -58,7 +59,6 @@ exec 'source ' . g:cfg_vimcfg_dir.'/vimrc.keymap.vim'
 exec 'source ' . g:cfg_vimcfg_dir.'/vimrc.completion.vim'
 
 " {{{ filetype commands
-    autocmd Filetype tex noremap K :w<CR>:!pdflatex -halt-on-error %<CR>
 " }}}
 
 " {{{ cscope
