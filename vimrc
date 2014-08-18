@@ -4,32 +4,22 @@
 " see especially the key mappings section
 " also, I use ack instead of grep, so if vimgrep breaks, that's why (grepprg)
 
-runtime bundle.remote/pathogen/autoload/pathogen.vim
-
-let g:pathogen_disabled = []
-
-" choose neocomplete or neocomplcache depending on whether vim was compiled
-" with lua
-if has('lua')
-    let g:completer = 'neocomplete'
-    call add(g:pathogen_disabled, 'neocomplcache')
-else
-    let g:completer = 'neocomplcache'
-    call add(g:pathogen_disabled, 'neocomplete')
+if has('vim_starting')
+    set nocompatible
+    let g:completer = 'youcompleteme'
 endif
 
-execute pathogen#infect('bundle.remote/{}')
-execute pathogen#infect('bundle.local/{}')
-execute pathogen#helptags()
+let g:cfg_vimcfg_dir = expand('~/.vim')
+
+exec 'source ' . g:cfg_vimcfg_dir.'/vimrc.neobundle.vim'
 
 autocmd!
 " stop vim from pushing # to indent level 0 on python files
 autocmd Filetype python set cms=#%s | inoremap # X<C-h>#
-autocmd Filetype c set grepprg=ack\ --cc
+autocmd Filetype c set grepprg=ag\ --cc
 " }}}
 
 " {{{ general behavior 
-set nocompatible
 set isk=a-z,A-Z,48-57,_
 set fdm=syntax
 set foldlevelstart=20
@@ -65,14 +55,13 @@ set backspace=indent,eol,start
 set ignorecase
 set smartcase
 
-set grepprg=ack
+set grepprg=ag
 
 let mapleader='\'
 " }}}
 
 " {{{ key mappings 
     " sneak.vim mappings
-    runtime! plugin/sneak.vim
     let  g:sneak#nextprev_f = 0
     let  g:sneak#use_ic_scs = 1
     nmap F      <Plug>SneakBackward
@@ -90,7 +79,7 @@ let mapleader='\'
     map <silent> <C-k> <C-w>+
     map <silent> <C-l> <C-w>>
 
-    " C-{n,p} move between bufers
+    " C-{n,p} move between buffers
     noremap <silent> <C-p> :bp<CR>
     noremap <silent> <C-n> :bn<CR>
 
@@ -110,7 +99,6 @@ let mapleader='\'
     noremap <silent> tt :ta 
 
     " unite.vim
-    runtime! plugin/unite.vim
 	call unite#filters#matcher_default#use(['matcher_fuzzy'])
 
 	autocmd FileType unite call s:unite_custom_settings()
@@ -153,6 +141,10 @@ let mapleader='\'
 
 " {{{ color 
 set cursorline
+let g:airline_theme = 'murmur'
+let g:tmuxline_powerline_separators = 0
+let g:airline_left_sep = ' '
+
 if &term =~ "256"
     " 256-color terminals get a modified version of lucius
     set t_Co=256
@@ -163,65 +155,37 @@ if &term =~ "256"
     hi Normal       ctermfg=255  ctermbg=none
     hi NonText                   ctermbg=none
     hi VertSplit    ctermfg=234  ctermbg=234
-    hi SpellBad     ctermfg=203  ctermbg=88
-    hi Comment      ctermfg=250  ctermbg=234
+    hi Comment      ctermfg=250
     hi Todo         ctermfg=160
     hi Pmenu        ctermfg=250  ctermbg=237
     hi PmenuSel     ctermfg=186  ctermbg=59
     hi CursorLine                ctermbg=17
     hi CursorColumn              ctermbg=17
-    hi TabLineSel   ctermfg=233  ctermbg=250
     hi TabLine      ctermfg=244  ctermbg=238 cterm=underline
     hi TabLineFill  ctermfg=244  ctermbg=238 cterm=underline
-
-    hi Folded       ctermfg=187  ctermbg=235 cterm=bold
-    hi FoldColumn   ctermfg=187  ctermbg=235 cterm=bold
-
-    "hi NStatusLine  ctermfg=254 ctermbg=237
-    "hi NslSep       ctermfg=240 ctermbg=237
-
-    "hi IStatusLine  ctermfg=226 ctermbg=237
-    "hi IslSep       ctermfg=136 ctermbg=237
-    
-    "hi StatusLineNC ctermfg=240 ctermbg=234
 else
-    " otherwise, make the default a little less painful
-    colorscheme default
-    hi CursorLine   cterm=none  ctermbg=6
-    hi CursorColumn cterm=none  ctermbg=black
-    hi FoldColumn               ctermbg=cyan
-    hi Folded                   ctermbg=cyan
-    hi Pmenu                    ctermbg=cyan
+    colorscheme murphy
+    hi CursorLine   term=underline
+    hi CursorColumn term=underline
     hi PmenuSel     cterm=none  ctermfg=yellow  ctermbg=black
     hi PmenuThumb   cterm=none  ctermfg=yellow  ctermbg=yellow
     hi PmenuSbar    cterm=none  ctermfg=cyan    ctermbg=cyan
-
-    "hi NStatusLine cterm=bold   ctermfg=yellow  ctermbg=cyan
-    "hi NslSep      cterm=bold   ctermfg=yellow  ctermbg=cyan
-
-    "hi IStatusLine cterm=bold   ctermfg=red   ctermbg=cyan
-    "hi IslSep      cterm=bold   ctermfg=red   ctermbg=cyan
-
-    "hi StatusLineNC cterm=none  ctermbg=cyan
 endif
-
-" this is taken care of by airline now
-"hi! link StatusLine  NStatusLine
-"hi! link slReadOnly  Error
-"hi! link slSep       NslSep
-
-"set statusline=\ %(%m\ %)%f%=%#slReadOnly#%r%*%y\ %l%#slSep#/%*%L%#slSep#\|%*%c%*\ %p%*%#slSep#%%%*
-
-" when we're in insert mode, the status line color will change
-"au InsertEnter * hi! link StatusLine IStatusLine | hi! link slSep IslSep
-"au InsertLeave * hi! link StatusLine NStatusLine | hi! link slSep NslSep
 " }}}
 
 " {{{ completion
-    if g:completer ==? 'neocomplete'
-        runtime! plugin/neocomplete.vim
+    if g:completer ==? 'youcompleteme'
+        NeoBundleSource YouCompleteMe
 
-        NeoCompleteEnable
+        let g:ycm_enable_diagnostic_signs = 0
+        let g:ycm_key_invoke_completion =''
+        let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+        let g:ycm_confirm_extra_conf = 0
+        let g:ycm_autoclose_preview_window_after_completion = 1
+    elseif g:completer ==? 'neocomplete'
+        NeoBundleSource neocomplete
+
+        let g:neocomplete_use_vimproc = 1
 
         " Disable AutoComplPop.
         let g:acp_enableAtStartup = 0
@@ -275,8 +239,10 @@ endif
         autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
         autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
         autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-    else
-        runtime! plugin/neocomplcache.vim
+
+        NeoCompleteEnable
+    elseif g:completer ==? 'neocomplcache'
+        NeoBundleSource neocomplcache
 
         NeoComplCacheEnable
         " Disable AutoComplPop.
