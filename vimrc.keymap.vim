@@ -1,3 +1,6 @@
+let mapleader='\'
+let maplocalleader='\\'
+
 " sneak.vim mappings
 let  g:sneak#nextprev_f = 0
 let  g:sneak#use_ic_scs = 1
@@ -71,3 +74,6 @@ map  <ESC>[201~ :set nopaste<CR>
 imap <ESC>[200~ <C-o>:set paste<CR>
 imap <ESC>[201~ <nop>
 set  pastetoggle=<ESC>[201~
+
+
+" vim: fdm=marker

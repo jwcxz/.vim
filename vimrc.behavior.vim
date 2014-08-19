@@ -1,0 +1,43 @@
+set isk=a-z,A-Z,48-57,_
+set history=50
+set ttyfast
+set hidden
+set cryptmethod="blowfish"
+
+syntax enable
+filetype plugin indent on
+
+set wildmode=longest,list
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
+
+set modeline
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set shiftround
+set expandtab
+set hlsearch
+set incsearch
+
+set autoindent
+set smartindent
+set backspace=indent,eol,start
+
+set ignorecase
+set smartcase
+
+set grepprg=ag
+
+
+if has('cscope')
+    "set cscopetag cscopeverbose
+
+    if has('quickfix')
+    set cscopequickfix=s-,c-,d-,i-,t-,e-
+    endif
+
+    command! -nargs=0 Cscope cs add $VIMSRC/src/cscope.out $VIMSRC/src
+endif
+
+
+" vim: fdm=marker

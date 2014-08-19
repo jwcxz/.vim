@@ -1,5 +1,3 @@
-" vim: fdm=marker
-
 if g:completer ==? 'youcompleteme' " {{{
     NeoBundleSource YouCompleteMe
 
@@ -138,3 +136,6 @@ elseif g:completer ==? 'neocomplcache' " {{{
     " }}}
 
 endif
+
+
+" vim: fdm=marker

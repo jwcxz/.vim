@@ -1,3 +1,4 @@
+set lazyredraw
 set cursorline
 set laststatus=2
 set foldlevelstart=99
@@ -50,3 +51,6 @@ else
     hi PmenuSbar    cterm=none  ctermfg=cyan    ctermbg=cyan
 
 endif
+
+
+" vim: fdm=marker
