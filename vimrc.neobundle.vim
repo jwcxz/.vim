@@ -8,11 +8,11 @@ let g:cfg_bundle_neobundle_dir = g:cfg_bundle_remote_dir.'/neobundle.vim'
 if has('vim_starting')
     let neobundle_testfile = g:cfg_bundle_neobundle_dir.'/README.md'
     if !filereadable(neobundle_testfile)
-        silent !mkdir -p g:cfg_bundle_remote_dir
-        silent !git clone https://github.com/Shougo/neobundle.vim g:cfg_bundle_neobundle_dir
+        exec 'silent !mkdir -p '.g:cfg_bundle_remote_dir
+        exec 'silent !git clone https://github.com/Shougo/neobundle.vim '.g:cfg_bundle_neobundle_dir
     endif
 
-    set runtimepath+=~/.vim/bundle.remote/neobundle.vim
+    exec 'set runtimepath+='.g:cfg_bundle_neobundle_dir
 endif
 
 
@@ -72,3 +72,6 @@ call neobundle#end()
 
 filetype plugin indent on
 NeoBundleCheck
+
+
+" vim: fdm=marker
