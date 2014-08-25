@@ -55,6 +55,8 @@ NeoBundle 'jwcxz/vim-vdb'
 NeoBundle 'vim-scripts/verilog_systemverilog.vim'
 NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'wellle/targets.vim'
+NeoBundle 'PeterRincker/vim-argumentative'
 
 NeoBundle 'Shougo/neocomplcache'    , { 'disabled' : g:completer !=? 'neocomplcache' }
 NeoBundle 'Shougo/neocomplete'      , { 'disabled' : g:completer !=? 'neocomplete'   }
