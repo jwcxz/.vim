@@ -65,14 +65,11 @@ elseif g:completer ==? 'neocomplete' " {{{
     autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
     autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
     autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-    NeoCompleteEnable
     " }}}
 
 elseif g:completer ==? 'neocomplcache' " {{{
     NeoBundleSource neocomplcache
 
-    NeoComplCacheEnable
     " Disable AutoComplPop.
     let g:acp_enableAtStartup = 0
     " Use neocomplcache.

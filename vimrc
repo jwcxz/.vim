@@ -6,7 +6,15 @@ let g:cfg_vimcfg_dir = expand('~/.vim')
 
 if has('vim_starting')
     set nocompatible
-    let g:completer = 'youcompleteme'
+    if !exists('g:completer')
+        if has('python')
+            let g:completer = 'youcompleteme'
+        elseif has('lua')
+            let g:completer = 'neocomplete'
+        else
+            let g:completer = 'neocomplcache'
+        endif
+    endif
 endif
 
 

@@ -2,7 +2,9 @@ set isk=a-z,A-Z,48-57,_
 set history=50
 set ttyfast
 set hidden
-set cryptmethod="blowfish"
+if has('cryptv')
+    set cryptmethod="blowfish"
+endif
 
 syntax enable
 filetype plugin indent on
