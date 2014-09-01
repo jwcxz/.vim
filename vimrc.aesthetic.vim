@@ -8,8 +8,8 @@ set foldcolumn=1
 set ruler
 
 let g:airline_theme = 'murmur'
-let g:airline_left_sep = '⧽'
-let g:airline_right_sep = '⧼'
+let g:airline_left_sep = '»'
+let g:airline_right_sep = '«'
 
 let g:tmuxline_theme = 'airline'
 let g:tmuxline_preset = 'tmux'
