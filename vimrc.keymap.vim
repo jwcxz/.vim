@@ -50,6 +50,7 @@ function! s:unite_custom_settings()
     imap <buffer> <TAB> <Plug>(unite_select_next_line)
     imap <buffer> '     <Plug>(unite_quick_match_default_action)
     imap <buffer> <C-o> <ESC><Plug>(unite_all_exit)
+    imap <buffer> ;     <Esc><Plug>(unite_all_exit)
     imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
     imap <buffer> <C-l> <Plug>(unite_redraw)
 endfunction
