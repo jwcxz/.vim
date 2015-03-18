@@ -34,6 +34,7 @@ NeoBundle 'vim-scripts/guicolorscheme.vim'
 NeoBundle 'jszakmeister/vim-togglecursor'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'edkolev/tmuxline.vim'
+NeoBundle 'junegunn/vim-peekaboo'
 
 " colorschemes
 NeoBundle 'jonathanfilip/vim-lucius'
@@ -44,10 +45,12 @@ NeoBundle 'smancill/conky-syntax.vim'
 NeoBundle 'jwcxz/vim-todo'
 NeoBundle 'jwcxz/vim-vdb'
 NeoBundle 'jwcxz/vim-logcp'
+NeoBundle 'vim-scripts/armasm'
 
 " unite
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'tsukkee/unite-tag'
+NeoBundle 'itchyny/thumbnail.vim'
 
 " completion
 NeoBundle 'Shougo/neocomplcache'    , { 'disabled' : g:completer !=? 'neocomplcache' }
@@ -80,7 +83,8 @@ NeoBundle 'wellle/targets.vim'
 NeoBundle 'PeterRincker/vim-argumentative'
 NeoBundle 'Konfekt/FastFold'
 NeoBundle 'talek/obvious-resize'
-NeoBundle 'shime/vim-livedown'
+NeoBundle 'tpope/vim-markdown'
+NeoBundle 'suan/vim-instant-markdown'
 
 " local bundles
 NeoBundleLocal '~/.vim/bundle.local/'

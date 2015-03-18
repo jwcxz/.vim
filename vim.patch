@@ -1,0 +1,71 @@
+commit 4ebec3ecf6d85bc547af5240ed80cb9f208decb8
+Author: Joe Colosimo <jwc@jwcxz.com>
+Date:   Fri Mar 13 10:26:03 2015 -0700
+
+    add some more plugins, add armasm filetype, remove obsolete aesthetic tweaks
+
+diff --git a/bundle.local/armdis/ftdetect/dis.vim b/bundle.local/armdis/ftdetect/dis.vim
+new file mode 100644
+index 0000000..9997355
+--- /dev/null
++++ b/bundle.local/armdis/ftdetect/dis.vim
+@@ -0,0 +1,4 @@
++au BufRead,BufNewFile *.dis setfiletype armasm
++set sw=8
++set ts=8
++set noet
+diff --git a/vimrc.aesthetic.vim b/vimrc.aesthetic.vim
+index fb3ab3f..8217cae 100644
+--- a/vimrc.aesthetic.vim
++++ b/vimrc.aesthetic.vim
+@@ -44,15 +44,6 @@ if &term =~ "256"
+     " make things a little nicer
+     hi Normal       ctermfg=255  ctermbg=none guifg=#FFFFFF guibg=#000000
+     hi Todo         ctermfg=160  ctermbg=233  guifg=#D70000 guibg=#121212
+-    "hi NonText                   ctermbg=none               guibg=#000000
+-    "hi VertSplit    ctermfg=234  ctermbg=234  guifg=#1C1C1C guibg=#1C1C1C
+-    "hi Comment      ctermfg=250               guifg=#BCBCBC
+-    "hi Pmenu        ctermfg=250  ctermbg=237  guifg=#BCBCBC guibg=#3A3A3A
+-    "hi PmenuSel     ctermfg=186  ctermbg=59   guifg=#D7D787 guibg=#5F5F5F
+-    "hi CursorLine                ctermbg=17                 guibg=#00005F
+-    "hi CursorColumn              ctermbg=17                 guibg=#00005F
+-    "hi TabLine      ctermfg=244  ctermbg=238  guifg=#808080 guibg=#444444 cterm=underline
+-    "hi TabLineFill  ctermfg=244  ctermbg=238  guifg=#808080 guibg=#444444 cterm=underline
+ 
+ else
+ 
+diff --git a/vimrc.neobundle.vim b/vimrc.neobundle.vim
+index 85d87cb..f07f087 100644
+--- a/vimrc.neobundle.vim
++++ b/vimrc.neobundle.vim
+@@ -34,6 +34,7 @@ NeoBundle 'vim-scripts/guicolorscheme.vim'
+ NeoBundle 'jszakmeister/vim-togglecursor'
+ NeoBundle 'bling/vim-airline'
+ NeoBundle 'edkolev/tmuxline.vim'
++NeoBundle 'junegunn/vim-peekaboo'
+ 
+ " colorschemes
+ NeoBundle 'jonathanfilip/vim-lucius'
+@@ -44,10 +45,12 @@ NeoBundle 'smancill/conky-syntax.vim'
+ NeoBundle 'jwcxz/vim-todo'
+ NeoBundle 'jwcxz/vim-vdb'
+ NeoBundle 'jwcxz/vim-logcp'
++NeoBundle 'vim-scripts/armasm'
+ 
+ " unite
+ NeoBundle 'Shougo/unite.vim'
+ NeoBundle 'tsukkee/unite-tag'
++NeoBundle 'itchyny/thumbnail.vim'
+ 
+ " completion
+ NeoBundle 'Shougo/neocomplcache'    , { 'disabled' : g:completer !=? 'neocomplcache' }
+@@ -80,7 +83,8 @@ NeoBundle 'wellle/targets.vim'
+ NeoBundle 'PeterRincker/vim-argumentative'
+ NeoBundle 'Konfekt/FastFold'
+ NeoBundle 'talek/obvious-resize'
+-NeoBundle 'shime/vim-livedown'
++NeoBundle 'tpope/vim-markdown'
++NeoBundle 'suan/vim-instant-markdown'
+ 
+ " local bundles
+ NeoBundleLocal '~/.vim/bundle.local/'
