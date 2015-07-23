@@ -35,6 +35,8 @@ NeoBundle 'jszakmeister/vim-togglecursor'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'junegunn/vim-peekaboo'
+NeoBundle 'vasconcelloslf/vim-interestingwords'
+NeoBundle 'jaxbot/semantic-highlight.vim'
 
 " colorschemes
 NeoBundle 'jonathanfilip/vim-lucius'
