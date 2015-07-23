@@ -35,7 +35,7 @@ if has('termtruecolor')
     set guicolors
 endif
 
-if &term =~ "256"
+if &term =~ "256" || has('nvim')
 
     " 256-color terminals get a modified version of lucius
     set t_Co=256
@@ -44,6 +44,8 @@ if &term =~ "256"
     " make things a little nicer
     hi Normal       ctermfg=255  ctermbg=none guifg=#FFFFFF guibg=#000000
     hi Todo         ctermfg=160  ctermbg=233  guifg=#D70000 guibg=#121212
+    hi SpellBad     ctermfg=196  ctermbg=52   guifg=#FF8888 guibg=#660000
+    hi Search       ctermfg=51   ctermbg=30   guifg=#17FCED guibg=#0A8A81
 
 else
 
