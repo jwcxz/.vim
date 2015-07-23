@@ -76,5 +76,11 @@ imap <ESC>[200~ <C-o>:set paste<CR>
 imap <ESC>[201~ <nop>
 set  pastetoggle=<ESC>[201~
 
+" neovim specifics
+if has('nvim')
+    tnoremap <C-a>      <C-\><C-n>
+    tnoremap <C-a><C-a> <C-a>
+endif
+
 
 " vim: fdm=marker
