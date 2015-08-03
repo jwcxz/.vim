@@ -37,6 +37,7 @@ NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'junegunn/vim-peekaboo'
 NeoBundle 'vasconcelloslf/vim-interestingwords'
 NeoBundle 'jaxbot/semantic-highlight.vim'
+NeoBundle 'unblevable/quick-scope'
 
 " colorschemes
 NeoBundle 'jonathanfilip/vim-lucius'
@@ -80,6 +81,7 @@ NeoBundle 'vim-scripts/taglist.vim'
 NeoBundle 'coderifous/textobj-word-column.vim'
 NeoBundle 'vim-scripts/verilog_systemverilog.vim'
 NeoBundle 'tpope/vim-dispatch'
+NeoBundle 'adenling/vim-dispatch-neovim'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'wellle/targets.vim'
 NeoBundle 'PeterRincker/vim-argumentative'
@@ -87,6 +89,7 @@ NeoBundle 'Konfekt/FastFold'
 NeoBundle 'talek/obvious-resize'
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'suan/vim-instant-markdown'
+NeoBundle 'tpope/vim-fugitive'
 
 " local bundles
 NeoBundleLocal '~/.vim/bundle.local/'
