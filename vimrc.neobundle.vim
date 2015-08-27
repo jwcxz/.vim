@@ -37,7 +37,7 @@ NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'junegunn/vim-peekaboo'
 NeoBundle 'vasconcelloslf/vim-interestingwords'
 NeoBundle 'jaxbot/semantic-highlight.vim'
-NeoBundle 'unblevable/quick-scope'
+NeoBundle 'haya14busa/incsearch.vim'
 
 " colorschemes
 NeoBundle 'jonathanfilip/vim-lucius'
@@ -50,10 +50,14 @@ NeoBundle 'jwcxz/vim-vdb'
 NeoBundle 'jwcxz/vim-logcp'
 NeoBundle 'vim-scripts/armasm'
 
-" unite
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'tsukkee/unite-tag'
+" buffer management
 NeoBundle 'itchyny/thumbnail.vim'
+NeoBundle 'Shougo/unite.vim'    , { 'disabled' : g:bufmanager !=? 'unite' }
+NeoBundle 'tsukkee/unite-tag'   , { 'disabled' : g:bufmanager !=? 'unite' }
+NeoBundle 'junegunn/fzf.vim'    , { 'disabled' : g:bufmanager !=? 'fzf', 'name': 'fzf-tools' }
+if g:bufmanager ==? 'fzf'
+    NeoBundle '~/.fzf'          , { 'disabled' : g:bufmanager !=? 'fzf', 'name': 'fzf-base' }
+endif
 
 " completion
 NeoBundle 'Shougo/neocomplcache'    , { 'disabled' : g:completer !=? 'neocomplcache' }
@@ -69,7 +73,6 @@ NeoBundle 'Valloric/YouCompleteMe'  , { 'disabled' : g:completer !=? 'youcomplet
 NeoBundle 'vim-scripts/a.vim'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'hari-rangarajan/CCTree'
-NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'vim-scripts/jpythonfold.vim'
 NeoBundle 'graudeejs/vim-matchit'
 NeoBundle 'scrooloose/nerdtree'
@@ -83,7 +86,6 @@ NeoBundle 'vim-scripts/verilog_systemverilog.vim'
 NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'wellle/targets.vim'
-NeoBundle 'PeterRincker/vim-argumentative'
 NeoBundle 'Konfekt/FastFold'
 NeoBundle 'talek/obvious-resize'
 NeoBundle 'tpope/vim-markdown'

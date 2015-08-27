@@ -42,4 +42,11 @@ if has('cscope')
 endif
 
 
+let g:ag_highlight= 1
+
+let g:sneak#s_next = 0
+let g:sneak#use_ic_scs = 1
+let g:sneak#textobject_z = 0
+
+
 " vim: fdm=marker

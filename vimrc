@@ -15,6 +15,15 @@ if has('vim_starting')
             let g:completer = 'neocomplcache'
         endif
     endif
+
+    if !exists('g:bufmanager')
+        let fzfloc = system("which fzf")
+        if v:shell_error == 0
+            let g:bufmanager = 'fzf'
+        else
+            let g:bufmanager = 'unite'
+        endif
+    endif
 endif
 
 
@@ -24,6 +33,8 @@ exec 'source ' . g:cfg_vimcfg_dir.'/vimrc.aesthetic.vim'
 exec 'source ' . g:cfg_vimcfg_dir.'/vimrc.keymap.vim'
 exec 'source ' . g:cfg_vimcfg_dir.'/vimrc.completion.vim'
 exec 'source ' . g:cfg_vimcfg_dir.'/vimrc.autocmds.vim'
+
+exec 'source ' . g:cfg_vimcfg_dir.'/vimrc.pluginbehavior.vim'
 
 
 " vim: fdm=marker

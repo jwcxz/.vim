@@ -13,20 +13,7 @@ set ruler
 if has('multi_byte')
     set list
     set listchars=tab:»·,trail:·
-    set fillchars=stl:\ ,stlnc:\ ,vert:│
-endif
-
-let g:airline_theme = 'murmur'
-let g:airline_left_sep = '»'
-let g:airline_right_sep = '«'
-
-let g:tmuxline_theme = 'airline'
-let g:tmuxline_preset = 'tmux'
-let g:tmuxline_powerline_separators = 0
-
-if !has('vim_starting')
-    NeoBundleSource airline
-    AirlineRefresh
+    set fillchars=vert:┃
 endif
 
 if has('termtruecolor')
@@ -46,6 +33,7 @@ if &term =~ "256" || has('nvim')
     hi Todo         ctermfg=160  ctermbg=233  guifg=#D70000 guibg=#121212
     hi SpellBad     ctermfg=196  ctermbg=52   guifg=#FF8888 guibg=#660000
     hi Search       ctermfg=51   ctermbg=30   guifg=#17FCED guibg=#0A8A81
+    hi VertSplit    ctermfg=237  ctermbg=234  guifg=#2b2b2b guibg=#1c1c1c
 
 else
 
@@ -57,6 +45,11 @@ else
     hi PmenuSbar    cterm=none  ctermfg=cyan    ctermbg=cyan
 
 endif
+
+
+let g:sneak#prompt = '〉'
+hi link SneakPluginTarget   DiffAdd
+hi link SneakPluginScope    DiffChange
 
 
 " vim: fdm=marker
