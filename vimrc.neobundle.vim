@@ -81,16 +81,20 @@ NeoBundle 'chrisbra/Recover.vim'
 NeoBundle 'justinmk/vim-sneak'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'vim-scripts/taglist.vim'
-NeoBundle 'coderifous/textobj-word-column.vim'
 NeoBundle 'vim-scripts/verilog_systemverilog.vim'
 NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'tpope/vim-surround'
-NeoBundle 'wellle/targets.vim'
 NeoBundle 'Konfekt/FastFold'
 NeoBundle 'talek/obvious-resize'
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'suan/vim-instant-markdown'
 NeoBundle 'tpope/vim-fugitive'
+
+" text objects
+NeoBundle 'wellle/targets.vim'
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'thinca/vim-textobj-between'
+NeoBundle 'coderifous/textobj-word-column.vim'
 
 " local bundles
 NeoBundleLocal '~/.vim/bundle.local/'
