@@ -55,6 +55,7 @@ NeoBundle 'vim-scripts/armasm'
 NeoBundle 'itchyny/thumbnail.vim'
 NeoBundle 'Shougo/unite.vim'    , { 'disabled' : g:bufmanager !=? 'unite' }
 NeoBundle 'tsukkee/unite-tag'   , { 'disabled' : g:bufmanager !=? 'unite' }
+NeoBundle 'Shougo/denite.nvim'  , { 'disabled' : g:bufmanager !=? 'denite' }
 NeoBundle 'junegunn/fzf.vim'    , { 'disabled' : g:bufmanager !=? 'fzf', 'name': 'fzf-tools' }
 if g:bufmanager ==? 'fzf'
     NeoBundle '~/.fzf'          , { 'disabled' : g:bufmanager !=? 'fzf', 'name': 'fzf-base' }

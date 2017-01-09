@@ -35,7 +35,7 @@ map g/ <Plug>(incsearch-stay)
 " }}}
 
 
-" fzf / unite {{{
+" buffer managers {{{
 if g:bufmanager ==? 'fzf'
 
     nnoremap <silent> ;; :Buffers<CR>
@@ -43,6 +43,22 @@ if g:bufmanager ==? 'fzf'
     nnoremap <silent> ;f :Files<CR>
     nnoremap <silent> ;R :Files<CR>
     nnoremap <silent> ;r :Files<CR>
+
+elseif g:bufmanager ==? 'denite'
+
+    nnoremap <silent> ;; :Denite buffer<CR>
+    nnoremap <silent> ;f :Denite file_rec<CR>
+    nnoremap <silent> ;R :Denite file_rec<CR>
+    nnoremap <silent> ;r :Denite file_rec<CR>
+
+    call denite#custom#map('_', "\<C-n>", 'move_to_next_line')
+    call denite#custom#map('_', "\<C-p>", 'move_to_prev_line')
+
+    call denite#custom#map('_', "\<C-n>", 'move_to_next_line')
+    call denite#custom#map('_', "\<C-p>", 'move_to_prev_line')
+
+    call denite#custom#map('_', "\<Up>", 'move_to_prev_line')
+    call denite#custom#map('_', "\<Down>", 'move_to_next_line')
 
 elseif g:bufmanager ==? 'unite'
 
@@ -62,11 +78,11 @@ elseif g:bufmanager ==? 'unite'
         imap <buffer> <C-l> <Plug>(unite_redraw)
     endfunction
 
-    nnoremap <silent> ;; :<C-u>Unite -start-insert buffer<CR>
-    nnoremap <silent> ;t :<C-u>Unite -start-insert tag<CR>
-    nnoremap <silent> ;f :<C-u>Unite -start-insert file<CR>
-    nnoremap <silent> ;R :<C-u>Unite -start-insert file_rec<CR>
-    nnoremap <silent> ;r :<C-u>Unite -start-insert file_rec/async<CR>
+    nnoremap <silent> ;; :<C-u>Unite -direction=dynamicbottom -start-insert buffer<CR>
+    nnoremap <silent> ;t :<C-u>Unite -direction=dynamicbottom -start-insert tag<CR>
+    nnoremap <silent> ;f :<C-u>Unite -direction=dynamicbottom -start-insert file<CR>
+    nnoremap <silent> ;R :<C-u>Unite -direction=dynamicbottom -start-insert file_rec<CR>
+    nnoremap <silent> ;r :<C-u>Unite -direction=dynamicbottom -start-insert file_rec/async<CR>
 
 endif
 " }}}
