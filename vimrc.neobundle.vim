@@ -32,7 +32,8 @@ NeoBundle 'Shougo/vimproc.vim', {
 " aesthetics
 NeoBundle 'vim-scripts/guicolorscheme.vim'
 NeoBundle 'jszakmeister/vim-togglecursor'
-NeoBundle 'bling/vim-airline'
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'junegunn/vim-peekaboo'
 NeoBundle 'vasconcelloslf/vim-interestingwords'
