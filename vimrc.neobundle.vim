@@ -65,8 +65,8 @@ NeoBundle 'Shougo/neocomplcache'    , { 'disabled' : g:completer !=? 'neocomplca
 NeoBundle 'Shougo/neocomplete'      , { 'disabled' : g:completer !=? 'neocomplete'   }
 NeoBundle 'Valloric/YouCompleteMe'  , { 'disabled' : g:completer !=? 'youcompleteme',
     \ 'build' : {
-        \ 'mac' : './install.sh --clang-completer --system-libclang',
-        \ 'unix' : './install.sh --clang-completer --system-libclang',
+        \ 'mac' : './install.py --clang-completer',
+        \ 'unix' : './install.py --clang-completer --system-libclang',
         \ }
     \ }
 
