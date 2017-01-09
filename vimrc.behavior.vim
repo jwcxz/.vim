@@ -48,5 +48,12 @@ let g:sneak#s_next = 0
 let g:sneak#use_ic_scs = 1
 let g:sneak#textobject_z = 0
 
+let g:tex_flavor = "latex"
+let g:tex_fast = "cmMprs"
+let g:tex_conceal = ""
+let g:tex_fold_enabled = 0
+let g:tex_comment_nospell = 1
+let g:vimtex_latexmk_enabled = 0
+
 
 " vim: fdm=marker
