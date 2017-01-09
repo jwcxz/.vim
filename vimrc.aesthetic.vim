@@ -1,7 +1,18 @@
 scriptencoding utf-8
 set encoding=utf-8
 
-set lazyredraw
+if has('gui_running') && has('nvim')
+    " work around neovim-dot-app slowness bug
+    set noshowcmd
+    set nolazyredraw
+elseif has('gui_running')
+    set showcmd
+    set lazyredraw
+else
+    set noshowcmd
+    set lazyredraw
+endif
+
 set cursorline
 set laststatus=2
 set foldlevelstart=99
