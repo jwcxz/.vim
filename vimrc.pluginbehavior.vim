@@ -8,7 +8,6 @@ let g:tmuxline_preset = 'tmux'
 let g:tmuxline_powerline_separators = 0
 
 if !has('vim_starting')
-    NeoBundleSource airline
     AirlineRefresh
 endif
 " }}}
@@ -51,14 +50,23 @@ elseif g:bufmanager ==? 'denite'
     nnoremap <silent> ;R :Denite file_rec<CR>
     nnoremap <silent> ;r :Denite file_rec<CR>
 
-    call denite#custom#map('_', "\<C-n>", 'move_to_next_line')
-    call denite#custom#map('_', "\<C-p>", 'move_to_prev_line')
+    call denite#custom#option('default', 'highlight_matched_char', 'Search')
+    call denite#custom#option('default', 'highlight_matched_range', 'Visual')
 
-    call denite#custom#map('_', "\<C-n>", 'move_to_next_line')
-    call denite#custom#map('_', "\<C-p>", 'move_to_prev_line')
+    call denite#custom#map('insert', "<C-n>",  '<denite:move_to_next_line>',     'noremap')
+    call denite#custom#map('normal', "<C-n>",  '<denite:move_to_next_line>',     'noremap')
+    call denite#custom#map('insert', "<C-p>",  '<denite:move_to_previous_line>', 'noremap')
+    call denite#custom#map('normal', "<C-p>",  '<denite:move_to_previous_line>', 'noremap')
 
-    call denite#custom#map('_', "\<Up>", 'move_to_prev_line')
-    call denite#custom#map('_', "\<Down>", 'move_to_next_line')
+    call denite#custom#map('insert', "<C-n>",  '<denite:move_to_next_line>',     'noremap')
+    call denite#custom#map('normal', "<C-n>",  '<denite:move_to_next_line>',     'noremap')
+    call denite#custom#map('insert', "<C-p>",  '<denite:move_to_previous_line>', 'noremap')
+    call denite#custom#map('normal', "<C-p>",  '<denite:move_to_previous_line>', 'noremap')
+
+    call denite#custom#map('insert', "<Up>",   '<denite:move_to_previous_line>', 'noremap')
+    call denite#custom#map('normal', "<Up>",   '<denite:move_to_previous_line>', 'noremap')
+    call denite#custom#map('insert', "<Down>", '<denite:move_to_next_line>',     'noremap')
+    call denite#custom#map('normal', "<Down>", '<denite:move_to_next_line>',     'noremap')
 
 elseif g:bufmanager ==? 'unite'
 

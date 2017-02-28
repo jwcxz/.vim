@@ -15,7 +15,11 @@ augroup END
 
 augroup ft_tex
     au!
-    au Filetype tex noremap K :w<CR>:!pdflatex -halt-on-error %<CR>
+    " todo: replace with a proper formatexpr that correctly formats item
+    " blocks fully
+    setlocal fo+=2
+    setlocal isk+=\\
+    abbreviate \item \item<Space><Space>
 augroup END
 
 

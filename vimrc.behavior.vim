@@ -48,12 +48,37 @@ let g:sneak#s_next = 0
 let g:sneak#use_ic_scs = 1
 let g:sneak#textobject_z = 0
 
+
+let g:tex_indent_brace = 0
 let g:tex_flavor = "latex"
 let g:tex_fast = "cmMprs"
 let g:tex_conceal = ""
 let g:tex_fold_enabled = 0
 let g:tex_comment_nospell = 1
 let g:vimtex_latexmk_enabled = 0
+
+
+function! PresModeEnter()
+    set guifont=GohuFont-Medium:h18
+endfunction
+
+function! PresModeLeave()
+    set guifont=GohuFont-Medium:h11
+endfunction
+
+command! PresModeEnter call PresModeEnter()
+command! PresModeLeave call PresModeLeave()
+
+
+function! AgSearch()
+    "let searchptn = substitute(substitute(@/, '^\\<', '', ''), '\\>$', '', '')
+    let lastptn = @/
+    AgFromSearch
+    let @/ = lastptn
+endfunction
+
+nnoremap <Leader>* *:call AgSearch()<CR>
+
 
 
 " vim: fdm=marker

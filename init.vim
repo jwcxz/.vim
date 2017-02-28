@@ -36,7 +36,7 @@ endif
 
 
 exec 'source ' . g:cfg_vimcfg_dir.'/vimrc.behavior.vim'
-exec 'source ' . g:cfg_vimcfg_dir.'/vimrc.neobundle.vim'
+exec 'source ' . g:cfg_vimcfg_dir.'/vimrc.plug.vim'
 exec 'source ' . g:cfg_vimcfg_dir.'/vimrc.aesthetic.vim'
 exec 'source ' . g:cfg_vimcfg_dir.'/vimrc.keymap.vim'
 exec 'source ' . g:cfg_vimcfg_dir.'/vimrc.completion.vim'

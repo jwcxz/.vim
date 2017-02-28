@@ -1,4 +1,4 @@
-set guifont=ProggyTinyTT\ 12
+set guifont=GohuFont
 colorscheme lucius
 set guioptions-=m
 set guioptions-=T

@@ -1,5 +1,4 @@
 if g:completer ==? 'youcompleteme' " {{{
-    NeoBundleSource YouCompleteMe
 
     let g:ycm_enable_diagnostic_signs = 0
     let g:ycm_key_invoke_completion =''
@@ -11,7 +10,6 @@ if g:completer ==? 'youcompleteme' " {{{
     " }}}
 
 elseif g:completer ==? 'neocomplete' " {{{
-    NeoBundleSource neocomplete
 
     let g:neocomplete_use_vimproc = 1
 
@@ -70,7 +68,6 @@ elseif g:completer ==? 'neocomplete' " {{{
     " }}}
 
 elseif g:completer ==? 'neocomplcache' " {{{
-    NeoBundleSource neocomplcache
 
     " Disable AutoComplPop.
     let g:acp_enableAtStartup = 0
