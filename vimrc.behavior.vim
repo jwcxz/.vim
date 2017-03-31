@@ -77,7 +77,26 @@ function! AgSearch()
     let @/ = lastptn
 endfunction
 
-nnoremap <Leader>* *:call AgSearch()<CR>
+nnoremap <silent> <Leader>* *:call AgSearch()<CR>
+
+
+function! SetKCmd(cmd)
+    exec 'noremap <silent> K :cope<CR><C-W>J<C-W>p:'.a:cmd.'<CR>'
+endfunction
+
+command! -nargs=+ -complete=command SetKCmd call SetKCmd(<q-args>)
+
+
+function! SetRunCmd(cmd)
+    call SetKCmd('AsyncRun '.a:cmd)
+endfunction
+
+command! -nargs=+ -complete=shellcmd SetRunCmd call SetRunCmd(<q-args>)
+nnoremap gK :SetRunCmd 
+
+
+vnoremap <silent> <Leader>v :w! /tmp/x.vim<CR>:so /tmp/x.vim<CR>
+nnoremap <silent> <Leader>V :so ~/.vimrc
 
 
 
