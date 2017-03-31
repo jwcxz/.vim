@@ -15,11 +15,18 @@ augroup END
 
 augroup ft_tex
     au!
+
+    au Filetype tex setlocal isk+=\\
+
     " todo: replace with a proper formatexpr that correctly formats item
     " blocks fully
-    setlocal fo+=2
-    setlocal isk+=\\
-    abbreviate \item \item<Space><Space>
+    au Filetype tex setlocal fo+=2
+    au Filetype tex abbreviate \item \item<Space><Space>
+
+    au Filetype tex setlocal spell
+    au Filetype tex syn spell toplevel
+
+    au Filetype tex set suffixesadd=.tex
 augroup END
 
 
