@@ -3,6 +3,7 @@
 
 
 let g:cfg_vimcfg_dir = expand('~/.vim')
+let g:cfg_vimcfg_local = g:cfg_vimcfg_dir.'/vimrc.local.vim'
 
 if has('vim_starting')
     set nocompatible
@@ -43,6 +44,10 @@ exec 'source ' . g:cfg_vimcfg_dir.'/vimrc.completion.vim'
 exec 'source ' . g:cfg_vimcfg_dir.'/vimrc.autocmds.vim'
 
 exec 'source ' . g:cfg_vimcfg_dir.'/vimrc.pluginbehavior.vim'
+
+if filereadable(g:cfg_vimcfg_local)
+    exec 'source ' . g:cfg_vimcfg_local
+endif
 
 
 " vim: fdm=marker
