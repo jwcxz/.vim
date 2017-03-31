@@ -96,7 +96,7 @@ nnoremap gK :SetRunCmd
 
 
 vnoremap <silent> <Leader>v :w! /tmp/x.vim<CR>:so /tmp/x.vim<CR>
-nnoremap <silent> <Leader>V :so ~/.vimrc
+nnoremap <Leader>V :so ~/.vimrc<CR>
 
 
 
