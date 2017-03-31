@@ -50,8 +50,12 @@ elseif g:bufmanager ==? 'denite'
     nnoremap <silent> ;R :Denite file_rec<CR>
     nnoremap <silent> ;r :Denite file_rec<CR>
 
-    call denite#custom#option('default', 'highlight_matched_char', 'Search')
-    call denite#custom#option('default', 'highlight_matched_range', 'Visual')
+    call denite#custom#option('_', 'auto_resize', 'true')
+    call denite#custom#option('_', 'direction', 'dynamicbottom')
+    call denite#custom#option('_', 'highlight_matched_char',  'Underlined')
+    call denite#custom#option('_', 'highlight_matched_range', 'Normal')
+    call denite#custom#option('_', 'highlight_mode_normal', 'CursorLine')
+    call denite#custom#option('_', 'highlight_mode_insert', 'CursorLine')
 
     call denite#custom#map('insert', "<C-n>",  '<denite:move_to_next_line>',     'noremap')
     call denite#custom#map('normal', "<C-n>",  '<denite:move_to_next_line>',     'noremap')
