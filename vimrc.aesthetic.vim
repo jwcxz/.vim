@@ -33,7 +33,20 @@ if has('termtruecolor')
     set guicolors
 endif
 
-if &term =~ "256" || has('nvim')
+if has('gui_running')
+
+    set guifont=GohuFont
+
+    colorscheme lucius
+    LuciusDark
+
+    set guioptions-=m
+    set guioptions-=T
+    set guioptions-=e
+    set guioptions-=r
+    set guioptions-=L
+
+elseif &term =~ "256" || has('nvim')
 
     " 256-color terminals get a modified version of lucius
     set t_Co=256

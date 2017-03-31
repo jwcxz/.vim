@@ -41,12 +41,21 @@ endfunction
 nnoremap <silent> <Enter> :call FoldToggle()<CR>
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 
-" Xorg paste escape codes
-map  <ESC>[200~ :set paste<CR>a
-map  <ESC>[201~ :set nopaste<CR>
-imap <ESC>[200~ <C-o>:set paste<CR>
-imap <ESC>[201~ <nop>
-set  pastetoggle=<ESC>[201~
+" linux specifics
+if has('unix') && !has('mac')
+    " Xorg paste escape codes
+    map  <ESC>[200~ :set paste<CR>a
+    map  <ESC>[201~ :set nopaste<CR>
+    imap <ESC>[200~ <C-o>:set paste<CR>
+    imap <ESC>[201~ <nop>
+    set  pastetoggle=<ESC>[201~
+
+    " make shift-insert in gvim work like it does in Xterm
+    if has('gui_running')
+        map <S-Insert> <MiddleMouse>
+        map! <S-Insert> <MiddleMouse>
+    endif
+endif
 
 " neovim specifics
 if has('nvim')
