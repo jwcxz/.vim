@@ -51,7 +51,8 @@ elseif g:bufmanager ==? 'denite'
     nnoremap <silent> ;r :Denite file_rec<CR>
 
     call denite#custom#option('_', 'auto_resize', 'true')
-    call denite#custom#option('_', 'direction', 'dynamicbottom')
+    call denite#custom#option('_', 'direction', 'botright')
+    call denite#custom#option('_', 'reversed', 'true')
     call denite#custom#option('_', 'highlight_matched_char',  'Underlined')
     call denite#custom#option('_', 'highlight_matched_range', 'Normal')
     call denite#custom#option('_', 'highlight_mode_normal', 'CursorLine')
