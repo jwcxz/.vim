@@ -21,7 +21,7 @@ if has('vim_starting')
         if has('python3')
             let g:bufmanager = 'denite'
         else
-            if has('gui')
+            if has('gui_running')
                 let g:bufmanager = 'unite'
             else
                 let fzfloc = system("which fzf")
