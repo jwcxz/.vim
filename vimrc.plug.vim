@@ -117,6 +117,9 @@ Plug 'thinca/vim-textobj-between'
 Plug 'coderifous/textobj-word-column.vim'
 Plug 'junegunn/vim-easy-align'
 
+" movememnt
+Plug 'easymotion/vim-easymotion'
+
 " local bundles
 let localplugs = split(system('ls -1 '.g:cfg_bundle_local_dir), "\n")
 for localplug in localplugs[1:]

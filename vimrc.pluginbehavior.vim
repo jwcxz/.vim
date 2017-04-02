@@ -13,24 +13,29 @@ endif
 " }}}
 
 
-" sneak {{{
-nmap , <Plug>SneakNext
-nmap _ <Plug>SneakPrevious
-xmap , <Plug>VSneakNext
-xmap _ <Plug>VSneakPrevious
-nmap f <Plug>Sneak_s
-nmap F <Plug>Sneak_S
-xmap f <Plug>Sneak_s
-xmap F <Plug>Sneak_S
-omap f <Plug>Sneak_s
-omap F <Plug>Sneak_S
-" }}}
-
-
 " incsearch {{{
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
+
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_use_smartsign_us = 1
+" }}}
+
+
+" easymotion {{{
+map ,        <Plug>(easymotion-prefix)
+map <Space>  <Plug>(easymotion-prefix)
+
+map <Space>f <Plug>(easymotion-f2)
+map <Space>s <Plug>(easymotion-s2)
+map <Space>t <Plug>(easymotion-t2)
+
+nmap <Space>; <Plug>(easymotion-next)
+nmap <Space>, <Plug>(easymotion-prev)
+
+nmap <Tab>    <Plug>(easymotion-next)
+nmap <S-Tab>  <Plug>(easymotion-prev)
 " }}}
 
 
