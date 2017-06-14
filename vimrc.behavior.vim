@@ -59,7 +59,7 @@ let g:vimtex_latexmk_enabled = 0
 
 
 function! PresModeEnter()
-    set guifont=GohuFont-Medium:h18
+    set guifont=SFMono-Light:h16
 endfunction
 
 function! PresModeLeave()

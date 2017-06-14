@@ -36,7 +36,6 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'vasconcelloslf/vim-interestingwords'
 Plug 'jaxbot/semantic-highlight.vim'
-Plug 'haya14busa/incsearch.vim'
 
 " colorschemes
 Plug 'jonathanfilip/vim-lucius'
@@ -118,7 +117,10 @@ Plug 'coderifous/textobj-word-column.vim'
 Plug 'junegunn/vim-easy-align'
 
 " movememnt
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'easymotion/vim-easymotion'
+Plug 'haya14busa/incsearch-easymotion.vim'
 
 " local bundles
 let localplugs = split(system('ls -1 '.g:cfg_bundle_local_dir), "\n")
