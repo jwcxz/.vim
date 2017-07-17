@@ -73,6 +73,9 @@ if g:bufmanager ==? 'fzf'
     Plug '~/.fzf', { 'as': 'fzf-base' }
 endif
 
+" window management
+Plug 't9md/vim-choosewin'
+
 " completion
 function! PlugPost_youcompleteme(info)
     if a:info.status != 'installed' && !a:info.force
