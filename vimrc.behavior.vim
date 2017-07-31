@@ -58,16 +58,29 @@ let g:tex_comment_nospell = 1
 let g:vimtex_latexmk_enabled = 0
 
 
+let g:pres_mode_enabled = 0
 function! PresModeEnter()
     set guifont=SFMono-Light:h16
+    let g:pres_mode_enabled = 1
 endfunction
 
 function! PresModeLeave()
     set guifont=GohuFont-Medium:h11
+    let g:pres_mode_enabled = 0
+endfunction
+
+function! PresModeToggle()
+    if g:pres_mode_enabled != 0
+        PresModeLeave
+    else
+        PresModeEnter
+    endif
 endfunction
 
 command! PresModeEnter call PresModeEnter()
 command! PresModeLeave call PresModeLeave()
+command! PresModeToggle call PresModeToggle()
+map <silent> <F11> :call PresModeToggle()<CR>
 
 
 function! AgSearch()
