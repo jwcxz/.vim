@@ -24,9 +24,6 @@ noremap <silent> <Esc>p :tabprev<CR>
 noremap <silent> <Esc>t :tabnew<CR>
 noremap <silent> <Esc>c :tabclose<CR>
 
-" tt means :ta
-noremap tt :ta 
-
 " fold manipulation
 function! FoldToggle()
     if foldlevel('.') > 0

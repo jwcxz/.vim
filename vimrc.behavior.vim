@@ -93,6 +93,10 @@ endfunction
 nnoremap <silent> <Leader>* *:call AgSearch()<CR>
 
 
+nnoremap <silent> <Leader>] :exec("ltag ".expand("<cword>"))<CR>:lopen<CR><C-W>J
+nnoremap <silent> <Leader>[ :exec("ptjump ".expand("<cword>"))<CR>
+
+
 function! SetKCmd(cmd)
     exec 'noremap <silent> K :cope<CR><C-W>J<C-W>p:'.a:cmd.'<CR>'
 endfunction
