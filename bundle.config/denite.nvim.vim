@@ -25,3 +25,11 @@ call denite#custom#map('insert', "<Up>",   '<denite:move_to_previous_line>', 'no
 call denite#custom#map('normal', "<Up>",   '<denite:move_to_previous_line>', 'noremap')
 call denite#custom#map('insert', "<Down>", '<denite:move_to_next_line>',     'noremap')
 call denite#custom#map('normal', "<Down>", '<denite:move_to_next_line>',     'noremap')
+
+
+function! s:denite_action_tree(context)
+    execute 'NERDTreeFind' . a:context['targets'][0].action__path
+endfunction
+
+call denite#custom#action('file,directory', 'tree', function('s:denite_action_tree'))
+nnoremap <silent> ;t :Denite -default-action=tree directory_rec<CR>
