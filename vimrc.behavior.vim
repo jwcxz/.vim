@@ -83,14 +83,14 @@ command! PresModeToggle call PresModeToggle()
 map <silent> <F11> :call PresModeToggle()<CR>
 
 
-function! AgSearch()
+function! QSearch()
     "let searchptn = substitute(substitute(@/, '^\\<', '', ''), '\\>$', '', '')
     let lastptn = @/
-    AgFromSearch
+    AckFromSearch
     let @/ = lastptn
 endfunction
 
-nnoremap <silent> <Leader>* *:call AgSearch()<CR>
+nnoremap <silent> <Leader>* *:call QSearch()<CR>
 
 
 nnoremap <silent> <Leader>] :exec("ltag ".expand("<cword>"))<CR>:lopen<CR><C-W>J

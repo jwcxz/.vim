@@ -95,7 +95,7 @@ Plug 'Valloric/YouCompleteMe', extend({ 'do' : function('PlugPost_youcompleteme'
 
 " other plugins
 Plug 'vim-scripts/a.vim'
-Plug 'rking/ag.vim'
+Plug 'mileszs/ack.vim'
 Plug 'hari-rangarajan/CCTree'
 Plug 'vim-scripts/jpythonfold.vim'
 Plug 'graudeejs/vim-matchit'
