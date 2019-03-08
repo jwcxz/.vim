@@ -107,6 +107,7 @@ Plug 'tpope/vim-surround'
 Plug 'Konfekt/FastFold'
 Plug 'tpope/vim-markdown'
 Plug 'suan/vim-instant-markdown'
+Plug 'jwcxz/vim-instant-wavedrom'
 Plug 'tpope/vim-fugitive'
 
 " text objects
