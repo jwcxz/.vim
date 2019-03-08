@@ -18,19 +18,15 @@ if has('vim_starting')
     endif
 
     if !exists('g:bufmanager')
-        if has('python3')
+        let fzf_loc = system("which fzf")
+        let has_fzf = (v:shell_error == 0)
+
+        if (has('terminal') || has('nvim')) && has_fzf
+            let g:bufmanager = 'fzf'
+        elseif has('python3')
             let g:bufmanager = 'denite'
         else
-            if has('gui_running')
-                let g:bufmanager = 'unite'
-            else
-                let fzfloc = system("which fzf")
-                if v:shell_error == 0
-                    let g:bufmanager = 'fzf'
-                else
-                    let g:bufmanager = 'unite'
-                endif
-            endif
+            let g:bufmanager = 'unite'
         endif
     endif
 endif
