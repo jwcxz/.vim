@@ -36,6 +36,10 @@ exec 'source ' . g:cfg_vimcfg_dir.'/vimrc.behavior.vim'
 exec 'source ' . g:cfg_vimcfg_dir.'/vimrc.plug.vim'
 exec 'source ' . g:cfg_vimcfg_dir.'/vimrc.aesthetic.vim'
 exec 'source ' . g:cfg_vimcfg_dir.'/vimrc.keymap.vim'
+if has('gui_running')
+    " TODO: support terminal features in terminal vim instances
+    exec 'source ' . g:cfg_vimcfg_dir.'/vimrc.terminal.vim'
+endif
 exec 'source ' . g:cfg_vimcfg_dir.'/vimrc.completion.vim'
 exec 'source ' . g:cfg_vimcfg_dir.'/vimrc.autocmds.vim'
 
