@@ -1,4 +1,4 @@
-let g:choosewin_overlay_enable = 1
+let g:choosewin_overlay_enable = 0
 let g:choosewin_blink_on_land = 0
 let g:choosewin_label = 'ASDFJKLGHQWERUIOPZXCVBNM'
 let g:choosewin_keymap = {
