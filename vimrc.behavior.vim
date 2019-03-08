@@ -116,5 +116,12 @@ vnoremap <silent> <Leader>v :w! /tmp/x.vim<CR>:so /tmp/x.vim<CR>
 nnoremap <Leader>V :so ~/.vimrc<CR>
 
 
+function! ShowFullPath()
+    echo expand('%:p')
+endfunction
+
+command! ShowFullPath call ShowFullPath()
+nnoremap <Leader>f :ShowFullPath<CR>
+
 
 " vim: fdm=marker
