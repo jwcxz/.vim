@@ -39,14 +39,12 @@ Plug 'jaxbot/semantic-highlight.vim'
 
 " colorschemes
 Plug 'jonathanfilip/vim-lucius'
-Plug 'Lokaltog/vim-distinguished'
 
 " syntax coloration
-Plug 'smancill/conky-syntax.vim'
 Plug 'jwcxz/vim-todo'
 Plug 'jwcxz/vim-vdb'
 Plug 'jwcxz/vim-logcp'
-Plug 'vim-scripts/armasm'
+Plug 'ARM9/arm-syntax-vim'
 
 "vimproc library
 function! PlugPost_vimproc(info)
@@ -75,6 +73,7 @@ endif
 
 " window management
 Plug 't9md/vim-choosewin'
+Plug 'dhruvasagar/vim-zoom'
 
 " completion
 function! PlugPost_youcompleteme(info)
@@ -96,7 +95,6 @@ Plug 'Valloric/YouCompleteMe', extend({ 'do' : function('PlugPost_youcompleteme'
 " other plugins
 Plug 'vim-scripts/a.vim'
 Plug 'mileszs/ack.vim'
-Plug 'hari-rangarajan/CCTree'
 Plug 'vim-scripts/jpythonfold.vim'
 Plug 'graudeejs/vim-matchit'
 Plug 'scrooloose/nerdtree'
@@ -110,7 +108,6 @@ Plug 'Konfekt/FastFold'
 Plug 'tpope/vim-markdown'
 Plug 'suan/vim-instant-markdown'
 Plug 'tpope/vim-fugitive'
-"Plug 'lervag/vimtex'
 
 " text objects
 Plug 'wellle/targets.vim'
