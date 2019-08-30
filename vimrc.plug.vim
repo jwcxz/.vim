@@ -37,8 +37,10 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'vasconcelloslf/vim-interestingwords'
 Plug 'jaxbot/semantic-highlight.vim'
 
+
 " colorschemes
 Plug 'jonathanfilip/vim-lucius'
+
 
 " syntax coloration
 Plug 'jwcxz/vim-todo'
@@ -46,51 +48,25 @@ Plug 'jwcxz/vim-vdb'
 Plug 'jwcxz/vim-logcp'
 Plug 'ARM9/arm-syntax-vim'
 
-"vimproc library
-function! PlugPost_vimproc(info)
-    if a:info.status != 'installed' && !a:info.force
-        return
-    endif
-
-    if has('mac')
-        !make -f make_mac.mak
-    else
-        !make -f make_unix.mak
-    endif
-endfunction
-
-Plug 'Shougo/vimproc.vim', extend({ 'do' : function('PlugPost_vimproc') },
-            \ PlugDisable((g:bufmanager !=? 'unite') && (g:completer !=? 'neocomplcache') && (g:completer !=? 'neocomplete')))
 
 " buffer management
-Plug 'Shougo/unite.vim', PlugDisable(g:bufmanager !=? 'unite')
-Plug 'tsukkee/unite-tag', PlugDisable(g:bufmanager !=? 'unite')
-Plug 'Shougo/denite.nvim', PlugDisable(g:bufmanager !=? 'denite')
 Plug 'junegunn/fzf.vim', extend({ 'as': 'fzf-tools' }, PlugDisable(g:bufmanager !=? 'fzf'))
-if g:bufmanager ==? 'fzf'
-    Plug '~/.fzf', { 'as': 'fzf-base' }
+let fzf_base_loc = expand('~/.fzf')
+if g:bufmanager ==? 'fzf' && isdirectory(fzf_base_loc)
+    Plug fzf_base_loc, { 'as': 'fzf-base' }
 endif
+
+Plug 'Yggdroot/LeaderF', extend({ 'do': './install.sh' }, PlugDisable(g:bufmanager !=? 'leaderf'))
+
 
 " window management
 Plug 't9md/vim-choosewin'
 Plug 'dhruvasagar/vim-zoom'
 
+
 " completion
-function! PlugPost_youcompleteme(info)
-    if a:info.status != 'installed' && !a:info.force
-        return
-    endif
+Plug 'neoclide/coc.nvim', extend({'branch': 'release'}, PlugDisable(g:completer !=? 'coc'))
 
-    if has('mac')
-        !./install.py --clang-completer
-    else
-        !./install.py --clang-completer --system-libclang
-    endif
-endfunction
-
-Plug 'Shougo/neocomplcache', PlugDisable(g:completer !=? 'neocomplcache')
-Plug 'Shougo/neocomplete', PlugDisable(g:completer !=? 'neocomplete')
-Plug 'Valloric/YouCompleteMe', extend({ 'do' : function('PlugPost_youcompleteme') }, PlugDisable(g:completer !=? 'youcompleteme'))
 
 " other plugins
 Plug 'vim-scripts/a.vim'
@@ -110,6 +86,7 @@ Plug 'suan/vim-instant-markdown'
 Plug 'jwcxz/vim-instant-wavedrom'
 Plug 'tpope/vim-fugitive'
 
+
 " text objects
 Plug 'wellle/targets.vim'
 Plug 'kana/vim-textobj-user'
@@ -117,11 +94,13 @@ Plug 'thinca/vim-textobj-between'
 Plug 'coderifous/textobj-word-column.vim'
 Plug 'junegunn/vim-easy-align'
 
-" movememnt
+
+" movement
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/incsearch-easymotion.vim'
+
 
 " local bundles
 let localplugs = split(system('ls -1 '.g:cfg_bundle_local_dir), "\n")

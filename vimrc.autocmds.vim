@@ -9,7 +9,7 @@ augroup END
 augroup ft_c_cpp
     au!
     au Filetype c,cpp setlocal grepprg=ag\ --cc
-    au Filetype c,cpp setlocal foldmethod=syntax
+    au Filetype c,cpp setlocal foldmethod=syntax | FastFoldUpdate
 augroup END
 
 

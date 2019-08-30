@@ -1,0 +1,24 @@
+{
+    "suggest": {
+        "autoTrigger": "trigger"
+    },
+
+    "languageserver": {
+        "ccls": {
+            "command": "ccls",
+            "args": ["-log-file=/tmp/ccls.log", "-v=2"],
+            "filetypes": ["c", "cpp", "objc", "objcpp"],
+            "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+            "initializationOptions": {
+                "cache": {
+                    "directory": "/tmp/ccls"
+                }
+            }
+        },
+
+        "digestif": {
+            "command": "digestif",
+            "filetypes": ["tex", "plaintex", "context"]
+        }
+    }
+}

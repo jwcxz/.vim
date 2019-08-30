@@ -9,6 +9,8 @@ endif
 syntax enable
 filetype plugin indent on
 
+set sessionoptions-=folds
+
 set wildmode=longest,list
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
 
@@ -29,6 +31,8 @@ set ignorecase
 set smartcase
 
 set grepprg=ag
+
+set signcolumn=no
 
 
 if has('cscope')
