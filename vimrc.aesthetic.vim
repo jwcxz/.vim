@@ -54,7 +54,7 @@ function! SetColorscheme()
         colorscheme lucius
         LuciusBlack
 
-        hi Normal       guibg=#202020
+        hi Normal       ctermbg=233 guibg=#202020
 
         hi SpellBad     ctermfg=196  ctermbg=52   guifg=#FF8888 guibg=#660000
         hi VertSplit    ctermfg=237  ctermbg=234  guifg=#2b2b2b guibg=#1c1c1c
