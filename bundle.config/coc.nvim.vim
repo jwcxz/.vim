@@ -7,4 +7,4 @@ inoremap <silent><expr> <c-f> coc#refresh()
 
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-let g:coc_global_extensions = ['coc-vimlsp', 'coc-tag', 'coc-python', 'coc-json']
+let g:coc_global_extensions = ['coc-vimlsp', 'coc-tag', 'coc-pyright', 'coc-json', 'coc-clangd']
