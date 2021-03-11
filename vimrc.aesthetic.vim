@@ -51,13 +51,13 @@ endif
 function! SetColorscheme()
     if has('gui_running') || &term =~ "256" || has('nvim')
 
-        colorscheme lucius
-        LuciusBlack
-
-        hi Normal       ctermbg=233 guibg=#202020
+        set background=dark
+        let g:gruvbox_contrast_dark = 'hard'
+        colorscheme gruvbox
 
         hi SpellBad     ctermfg=196  ctermbg=52   guifg=#FF8888 guibg=#660000
-        hi VertSplit    ctermfg=237  ctermbg=234  guifg=#2b2b2b guibg=#1c1c1c
+        hi Todo NONE
+        hi link Todo SpellBad
 
     else
 

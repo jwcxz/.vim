@@ -40,6 +40,7 @@ Plug 'jaxbot/semantic-highlight.vim'
 
 " colorschemes
 Plug 'jonathanfilip/vim-lucius'
+Plug 'morhetz/gruvbox'
 
 
 " syntax coloration
