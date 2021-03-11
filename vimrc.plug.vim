@@ -72,7 +72,7 @@ Plug 'neoclide/coc.nvim', extend({'branch': 'release'}, PlugDisable(g:completer 
 Plug 'vim-scripts/a.vim'
 Plug 'mileszs/ack.vim'
 Plug 'vim-scripts/jpythonfold.vim'
-Plug 'graudeejs/vim-matchit'
+Plug 'chrisbra/matchit'
 Plug 'scrooloose/nerdtree'
 Plug 'chrisbra/Recover.vim'
 Plug 'godlygeek/tabular'
