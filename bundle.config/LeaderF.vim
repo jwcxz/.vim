@@ -14,3 +14,9 @@ let g:Lf_CommandMap = {
             \ '<C-K>': ['<C-P>'],
             \ '<C-J>': ['<C-N>']
             \ }
+
+let g:Lf_ShowDevIcons = 0
+
+let g:Lf_JumpToExistingWindow = 0
+
+let g:Lf_WindowPosition = 'popup'
