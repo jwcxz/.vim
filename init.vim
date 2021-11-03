@@ -9,12 +9,6 @@ let g:cfg_vimcfg_dir = expand('~/.vim')
 let g:cfg_vimcfg_local = g:cfg_vimcfg_dir.'/vimrc.local.vim'
 
 
-" TODO: TEMPORARY
-" living on LeaderF for a bit to see if it should replace fzf as my default
-" buffer manager
-let g:bufmanager = 'leaderf'
-
-
 if has('vim_starting')
     set nocompatible
     if !exists('g:completer')
@@ -33,12 +27,20 @@ if has('vim_starting')
         let fzf_loc = system("which fzf")
         let has_fzf = (v:shell_error == 0)
 
-        if (has('terminal') || has('nvim')) && has_fzf
-            let g:bufmanager = 'fzf'
-        elseif has('python3') || has('python')
+        if has('python3') || has('python')
             let g:bufmanager = 'leaderf'
+        elseif (has('terminal') || has('nvim')) && has_fzf
+            let g:bufmanager = 'fzf'
         else
             let g:bufmanager = ''
+        endif
+    endif
+
+    if !exists('g:tree')
+        if has('nvim')
+            let g:tree = 'chadtree'
+        else
+            let g:tree = 'nerdtree'
         endif
     endif
 endif

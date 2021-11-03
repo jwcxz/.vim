@@ -74,7 +74,8 @@ Plug 'vim-scripts/a.vim'
 Plug 'mileszs/ack.vim'
 Plug 'vim-scripts/jpythonfold.vim'
 Plug 'chrisbra/matchit'
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', PlugDisable(g:tree !=? 'nerdtree')
+Plug 'ms-jpq/chadtree', extend({'branch': 'chad', 'do': 'python3 -m chadtree deps'}, PlugDisable(g:tree !=? 'chadtree'))
 Plug 'chrisbra/Recover.vim'
 Plug 'godlygeek/tabular'
 Plug 'vim-scripts/taglist.vim'
