@@ -30,9 +30,7 @@ call plug#begin(g:cfg_bundle_remote_dir)
 " aesthetics
 Plug 'vim-scripts/guicolorscheme.vim'
 Plug 'jszakmeister/vim-togglecursor'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'edkolev/tmuxline.vim'
+Plug 'itchyny/lightline.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'vasconcelloslf/vim-interestingwords'
 Plug 'jaxbot/semantic-highlight.vim'
@@ -72,13 +70,12 @@ Plug 'neoclide/coc.nvim', extend({'branch': 'release'}, PlugDisable(g:completer 
 " other plugins
 Plug 'vim-scripts/a.vim'
 Plug 'mileszs/ack.vim'
-Plug 'vim-scripts/jpythonfold.vim'
 Plug 'chrisbra/matchit'
 Plug 'scrooloose/nerdtree', PlugDisable(g:tree !=? 'nerdtree')
 Plug 'ms-jpq/chadtree', extend({'branch': 'chad', 'do': 'python3 -m chadtree deps'}, PlugDisable(g:tree !=? 'chadtree'))
 Plug 'chrisbra/Recover.vim'
 Plug 'godlygeek/tabular'
-Plug 'vim-scripts/taglist.vim'
+Plug 'yegappan/taglist'
 Plug 'vim-scripts/verilog_systemverilog.vim'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'tpope/vim-surround'
@@ -87,6 +84,7 @@ Plug 'tpope/vim-markdown'
 Plug 'suan/vim-instant-markdown'
 Plug 'jwcxz/vim-instant-wavedrom'
 Plug 'tpope/vim-fugitive'
+Plug 'tmhedberg/SimpylFold'
 
 
 " text objects

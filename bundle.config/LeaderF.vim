@@ -1,8 +1,8 @@
 let g:Lf_ShortcutF = ''
 let g:Lf_ShortcutB = ''
 
-nnoremap <silent> ;; :Leaderf buffer<CR>
-nnoremap <silent> ;t :Leaderf tags<CR>
+nnoremap <silent> ;; :Leaderf buffer --nameOnly<CR>
+nnoremap <silent> ;t :Leaderf tag<CR>
 nnoremap <silent> ;f :Leaderf file<CR>
 nnoremap <silent> ;R :Leaderf mru<CR>
 nnoremap <silent> ;r :Leaderf file<CR>
@@ -11,8 +11,12 @@ nnoremap <silent> ;r :Leaderf file<CR>
 let g:Lf_ExternalCommand = 'rg --files --no-ignore "%s"'
 
 let g:Lf_CommandMap = {
-            \ '<C-K>': ['<C-P>'],
-            \ '<C-J>': ['<C-N>']
+            \ '<Up>': ['<C-K>'],
+            \ '<Down>': ['<C-J>'],
+            \ '<C-K>': ['<C-P>', '<Up>'],
+            \ '<C-J>': ['<C-N>', '<Down>'],
+            \ '<C-P>': ['<C-O>'],
+            \ '<F5>': ['<C-R>']
             \ }
 
 let g:Lf_ShowDevIcons = 0

@@ -1,5 +1,5 @@
 let g:chadtree_settings = {
-            \ "theme.icon_glyph_set": "emoji",
+            \ "theme.icon_glyph_set": "ascii",
             \ "theme.text_colour_set": "solarized_dark"
             \ }
 

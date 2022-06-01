@@ -27,16 +27,6 @@ if has('multi_byte')
     set fillchars=vert:┃
 endif
 
-if has('termtruecolor')
-    let &t_8f="\e[38;2;%ld;%ld;%ldm"
-    let &t_8b="\e[48;2;%ld;%ld;%ldm"
-    set guicolors
-endif
-
-if &term =~ "256" || has('nvim')
-    set t_Co=256
-endif
-
 if has('gui_running')
     set guifont=GohuFont
 
@@ -50,6 +40,10 @@ endif
 
 function! SetColorscheme()
     if has('gui_running') || &term =~ "256" || has('nvim')
+
+        let &t_8f="\e[38;2;%ld;%ld;%ldm"
+        let &t_8b="\e[48;2;%ld;%ld;%ldm"
+        set termguicolors
 
         set background=dark
         let g:gruvbox_contrast_dark = 'hard'

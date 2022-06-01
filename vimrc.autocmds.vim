@@ -1,6 +1,5 @@
 augroup ft_python
     au!
-    au Filetype python setlocal foldmethod=syntax
     au Filetype python setlocal cms=#%s
     au Filetype python inoremap # X<C-h>#
 augroup END

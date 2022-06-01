@@ -12,9 +12,11 @@ noremap <silent> <C-l> <C-w>>
 noremap <silent> <C-p> :bp<CR>
 noremap <silent> <C-n> :bn<CR>
 
+" ( and ) are used in place of , and ;
+noremap <silent> ( ,
+noremap <silent> ) ;
+
 " ; is C-w, ;, is ,
-"noremap <silent> ,  ;
-"noremap <silent> ;, ,
 noremap <silent> ;  <C-w>
 noremap <silent> ;] <C-w><C-]>
 
