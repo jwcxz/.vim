@@ -68,6 +68,10 @@ endfunction
 
 call SetColorscheme()
 
+if has('nvim')
+    set pumblend=10
+endif
+
 
 let g:sneak#prompt = '〉'
 hi link SneakPluginTarget   DiffAdd
