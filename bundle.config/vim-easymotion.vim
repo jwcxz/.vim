@@ -11,9 +11,6 @@ map <Space>t <Plug>(easymotion-t2)
 nmap <Space>; <Plug>(easymotion-next)
 nmap <Space>, <Plug>(easymotion-prev)
 
-nmap <Tab>    <Plug>(easymotion-next)
-nmap <S-Tab>  <Plug>(easymotion-prev)
-
 
 function! s:incsearch_config(...) abort
   return incsearch#util#deepextend(deepcopy({
