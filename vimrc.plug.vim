@@ -46,6 +46,7 @@ Plug 'jwcxz/vim-todo'
 Plug 'jwcxz/vim-vdb'
 Plug 'jwcxz/vim-logcp'
 Plug 'ARM9/arm-syntax-vim'
+Plug 'nvim-treesitter/nvim-treesitter', extend({'do': ':TSUpdate'}, PlugDisable(!has('nvim')))
 
 
 " buffer management
