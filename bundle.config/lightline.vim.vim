@@ -1,5 +1,4 @@
 let g:lightline = {
-            \ 'colorscheme': 'materia',
             \ 'enable': {
                 \ 'statusline': 1,
                 \ 'tabline': 0
@@ -22,3 +21,9 @@ let g:lightline = {
                 \ 'right': ''
                 \ },
             \ }
+
+if has('nvim')
+    let g:lightline['colorscheme'] = 'catppuccin'
+else
+    let g:lightline['colorscheme'] = 'catppuccin_mocha'
+endif

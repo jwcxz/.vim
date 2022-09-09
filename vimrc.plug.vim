@@ -37,8 +37,8 @@ Plug 'jaxbot/semantic-highlight.vim'
 
 
 " colorschemes
-Plug 'jonathanfilip/vim-lucius'
-Plug 'morhetz/gruvbox'
+Plug 'catppuccin/nvim', extend({'as': 'catppuccin.nvim'}, PlugDisable(!has('nvim')))
+Plug 'catppuccin/vim', extend({'as': 'catppuccin.vim'}, PlugDisable(has('nvim')))
 
 
 " syntax coloration

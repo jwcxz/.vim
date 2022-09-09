@@ -45,9 +45,20 @@ function! SetColorscheme()
         let &t_8b="\e[48;2;%ld;%ld;%ldm"
         set termguicolors
 
-        set background=dark
-        let g:gruvbox_contrast_dark = 'hard'
-        colorscheme gruvbox
+        if has('nvim')
+            lua << EOF
+            local ok, _ = pcall(require, 'catppuccin')
+            if ok then
+                vim.g.catppuccin_flavour = "mocha"
+                require('catppuccin').setup({
+                    transparent_background = true,
+                })
+            end
+EOF
+            colorscheme catppuccin
+        else
+            colorscheme catppuccin_mocha
+        endif
 
         hi SpellBad     ctermfg=196  ctermbg=52   guifg=#FF8888 guibg=#660000
         hi Todo NONE
