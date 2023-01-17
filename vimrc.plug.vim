@@ -66,15 +66,33 @@ Plug 'dhruvasagar/vim-zoom'
 
 
 " completion
-Plug 'neoclide/coc.nvim', extend({'branch': 'release'}, PlugDisable(g:completer !=? 'coc'))
+"   currently, the only supported configuration is nvim-lsp_nvim-cmp (i.e. use
+"   neovim's native LSP support, add nvim-lspconfig for configuration, and add
+"   nvim-cmp and some of its dependencies for auto-completion
+Plug 'neovim/nvim-lspconfig', PlugDisable(g:completer !=? 'nvim-lsp_nvim-cmp')
+Plug 'hrsh7th/cmp-nvim-lsp', PlugDisable(g:completer !=? 'nvim-lsp_nvim-cmp')
+Plug 'hrsh7th/cmp-buffer', PlugDisable(g:completer !=? 'nvim-lsp_nvim-cmp')
+Plug 'hrsh7th/cmp-path', PlugDisable(g:completer !=? 'nvim-lsp_nvim-cmp')
+Plug 'hrsh7th/cmp-cmdline', PlugDisable(g:completer !=? 'nvim-lsp_nvim-cmp')
+Plug 'hrsh7th/nvim-cmp', PlugDisable(g:completer !=? 'nvim-lsp_nvim-cmp')
+Plug 'hrsh7th/cmp-vsnip', PlugDisable(g:completer !=? 'nvim-lsp_nvim-cmp')
+Plug 'hrsh7th/vim-vsnip', PlugDisable(g:completer !=? 'nvim-lsp_nvim-cmp')
+Plug 'quangnguyen30192/cmp-nvim-tags', PlugDisable(g:completer !=? 'nvim-lsp_nvim-cmp')
+
+
+" file hierarchy view
+Plug 'scrooloose/nerdtree', PlugDisable(g:tree !=? 'nerdtree')
+Plug 'ms-jpq/chadtree', extend({'branch': 'chad', 'do': 'python3 -m chadtree deps'}, PlugDisable(g:tree !=? 'chadtree'))
+Plug 'nvim-lua/plenary.nvim', PlugDisable(g:tree !=? 'neo-tree')
+Plug 'nvim-tree/nvim-web-devicons', PlugDisable(g:tree !=? 'neo-tree')
+Plug 'MunifTanjim/nui.nvim', PlugDisable(g:tree !=? 'neo-tree')
+Plug 'nvim-neo-tree/neo-tree.nvim', PlugDisable(g:tree !=? 'neo-tree')
 
 
 " other plugins
 Plug 'vim-scripts/a.vim'
 Plug 'mileszs/ack.vim'
 Plug 'chrisbra/matchit'
-Plug 'scrooloose/nerdtree', PlugDisable(g:tree !=? 'nerdtree')
-Plug 'ms-jpq/chadtree', extend({'branch': 'chad', 'do': 'python3 -m chadtree deps'}, PlugDisable(g:tree !=? 'chadtree'))
 Plug 'chrisbra/Recover.vim'
 Plug 'godlygeek/tabular'
 Plug 'yegappan/taglist'

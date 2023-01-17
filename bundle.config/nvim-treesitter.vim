@@ -13,3 +13,6 @@ if ok then
     }
 end
 EOF
+
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()

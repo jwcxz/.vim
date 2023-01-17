@@ -19,7 +19,8 @@ set foldlevelstart=99
 set mouse=a
 set foldcolumn=1
 
-set ruler
+set noruler
+set noshowmode
 
 if has('multi_byte')
     set list
@@ -61,8 +62,9 @@ EOF
         endif
 
         hi SpellBad     ctermfg=196  ctermbg=52   guifg=#FF8888 guibg=#660000
-        hi Todo NONE
-        hi link Todo SpellBad
+        hi! link Todo SpellBad
+        hi! link CursorLine CursorColumn
+        hi! link CocInlayHint FoldColumn
 
     else
 
@@ -81,6 +83,20 @@ call SetColorscheme()
 
 if has('nvim')
     set pumblend=10
+    set signcolumn=yes
+lua << EOF
+    -- https://dev.to/elvessousa/taking-neovim-to-the-moon-274g
+    -- TODO: refactor
+    vim.diagnostic.config({
+        float = { source = "always", border = "rounded",
+                    header={"※  DIAGNOSTICS  ※", "FloatBorder"} },
+        virtual_text = false,
+        signs = true,
+    })
+    vim.cmd([[ autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
+    local bufopts = { noremap=true, silent=true, buffer=0 }
+    vim.keymap.set('n', '<leader>xx', function() vim.diagnostic.open_float(nil, {focus=false}) end, bufopts)
+EOF
 endif
 
 

@@ -8,13 +8,19 @@ augroup END
 augroup ft_c_cpp
     au!
     au Filetype c,cpp setlocal grepprg=ag\ --cc
-    au Filetype c,cpp setlocal foldmethod=syntax | FastFoldUpdate
+    " TODO: find a better way to do this
+    if !has('nvim')
+        au Filetype c,cpp setlocal foldmethod=syntax | FastFoldUpdate
+    endif
 augroup END
 
 
 augroup ft_vim
     au!
-    au Filetype vim setlocal foldmethod=marker
+    " TODO: find a better way to do this
+    if !has('nvim')
+        au Filetype vim setlocal foldmethod=marker
+    endif
 augroup END
 
 

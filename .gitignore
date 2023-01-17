@@ -3,4 +3,5 @@ bundle.plug/
 spell/
 snippets/
 .netrwhist
-vimrc.local.vim
+vimrc.local.before.vim
+vimrc.local.after.vim
