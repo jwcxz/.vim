@@ -61,8 +61,10 @@ function! SetColorscheme()
             end
 EOF
             colorscheme catppuccin
-        else
+        elseif CfgProfileIs('portable')
             colorscheme catppuccin_mocha
+        else
+            colorscheme slate
         endif
 
         hi SpellBad     ctermfg=196  ctermbg=52   guifg=#FF8888 guibg=#660000
