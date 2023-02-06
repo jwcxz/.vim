@@ -179,11 +179,15 @@ if ok then
         -- Mappings.
         -- See `:help vim.lsp.*` for documentation on any of the below functions
         local bufopts = { noremap=true, silent=true, buffer=bufnr }
-        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+        --vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+        vim.keymap.set('n', 'gd', "<cmd>Trouble lsp_definitions<cr>", bufopts)
         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-        vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, bufopts)
-        vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+        --vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+        vim.keymap.set('n', 'gi', "<cmd>Trouble lsp_implementations<cr>", bufopts)
+        --vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, bufopts)
+        vim.keymap.set('n', 'gy', "<cmd>Trouble lsp_type_definitions<cr>", bufopts)
+        --vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+        vim.keymap.set('n', 'gr', "<cmd>Trouble lsp_references<cr>", bufopts)
         vim.keymap.set('n', '<leader>k', vim.lsp.buf.hover, bufopts)
         --vim.keymap.set('n', '<M-k>', vim.lsp.buf.signature_help, bufopts)
         --vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
@@ -243,6 +247,10 @@ if ok then
         -- set up language server
         lspc[srv].setup(new_cfg)
     end
+
+    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+        border = "rounded",
+    })
 end
 EOF
 

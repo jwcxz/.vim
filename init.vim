@@ -1,50 +1,66 @@
 " vimrc
 " jwc < http://jwcxz.com >
 
+" see README.md for background information, requirements, etc.
 
-let g:cfg_vimcfg_dir = expand('~/.vim')
 
-" local overrides, not tracked by git
-" this is sourced before all other configuration (besides the code inside
-"   `if has ('vim_starting')`
+" bootstrapping
+" -------------
+
+" get the true path of $MYVIMRC and set the configuration directory to its
+" parent directory.  This allows for alternate configurations with this
+" repository's directory structure to be resolved automatically when using
+" `[n]vim -u`.
+
+let g:cfg_resolved_vimrc = resolve(expand($MYVIMRC))
+" https://stackoverflow.com/q/16485748
+let g:cfg_vimcfg_dir = fnamemodify(g:cfg_resolved_vimrc, ':h')
+
+" configuration files for local overrides (ignored by git)
+" the "before" override is sourced before all other configuration (besides the
+" rest of this bootstrapping code
 let g:cfg_vimcfg_local_before = g:cfg_vimcfg_dir.'/vimrc.local.before.vim'
-" this is sourced after all other configuration
+" the "after" override is sourced after all other configuration
 let g:cfg_vimcfg_local_after = g:cfg_vimcfg_dir.'/vimrc.local.after.vim'
 
 
+
 if has('vim_starting')
+    " there are no situations where I will ever require compatible mode, so
+    " set that here
+    " TODO: determine if this is the right way to do this (e.g. see
+    " https://vi.stackexchange.com/q/25149)
     set nocompatible
-    if !exists('g:completer')
+
+    " determine the operation profile:
+    "   complete: only works with neovim, has dependencies that require manual
+    "             installation
+    "   portable: works with both neovim and vim, with a minimal set of
+    "             plugins to make both useful
+    "   noplugin: works with both neovim and vim, with no plugins (just
+    "             behavioral configuration)
+
+    " if the profile is already provided, it is not overridden
+
+    if !exists('$CFG_PROFILE')
+        " currently, the selection criteria is purely based on whether running
+        " neovim or vim
+        " TODO: add criteria for automatically determining whether to use
+        " noplugin profile
         if has('nvim')
-            let g:completer = 'nvim-lsp_nvim-cmp'
+            let $CFG_PROFILE = 'complete'
         else
-            " unsupported instances will not support auto-completion
-            let g:completer = ''
-        endif
-    endif
-
-    if !exists('g:bufmanager')
-        let fzf_loc = system("which fzf")
-        let has_fzf = (v:shell_error == 0)
-
-        if has('python3') || has('python')
-            let g:bufmanager = 'leaderf'
-        elseif (has('terminal') || has('nvim')) && has_fzf
-            let g:bufmanager = 'fzf'
-        else
-            let g:bufmanager = ''
-        endif
-    endif
-
-    if !exists('g:tree')
-        if has('nvim')
-            "let g:tree = 'chadtree'
-            let g:tree = 'neo-tree'
-        else
-            let g:tree = 'nerdtree'
+            let $CFG_PROFILE = 'portable'
         endif
     endif
 endif
+
+
+" provide a helpful function for determining if the configuration profile is a
+" certain query
+function! CfgProfileIs(query)
+    return $CFG_PROFILE ==? a:query
+endfunction
 
 
 if filereadable(g:cfg_vimcfg_local_before)
@@ -52,13 +68,9 @@ if filereadable(g:cfg_vimcfg_local_before)
 endif
 
 exec 'source ' . g:cfg_vimcfg_dir.'/vimrc.behavior.vim'
-exec 'source ' . g:cfg_vimcfg_dir.'/vimrc.plug.vim'
+exec 'source ' . g:cfg_vimcfg_dir.'/vimrc.plugins.vim'
 exec 'source ' . g:cfg_vimcfg_dir.'/vimrc.aesthetic.vim'
 exec 'source ' . g:cfg_vimcfg_dir.'/vimrc.keymap.vim'
-if has('gui_running')
-    " TODO: support terminal features in terminal vim instances
-    exec 'source ' . g:cfg_vimcfg_dir.'/vimrc.terminal.vim'
-endif
 exec 'source ' . g:cfg_vimcfg_dir.'/vimrc.autocmds.vim'
 
 exec 'source ' . g:cfg_vimcfg_dir.'/vimrc.pluginbehavior.vim'
@@ -66,6 +78,3 @@ exec 'source ' . g:cfg_vimcfg_dir.'/vimrc.pluginbehavior.vim'
 if filereadable(g:cfg_vimcfg_local_after)
     exec 'source ' . g:cfg_vimcfg_local_after
 endif
-
-
-" vim: fdm=marker

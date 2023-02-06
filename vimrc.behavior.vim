@@ -126,6 +126,3 @@ endfunction
 
 command! ShowFullPath call ShowFullPath()
 nnoremap <Leader>f :ShowFullPath<CR>
-
-
-" vim: fdm=marker

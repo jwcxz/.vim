@@ -1,3 +1,5 @@
+" probably going to remove this at some point
+
 " use <C-K> instead of <C-W> as the terminal window key
 if has('nvim')
     tnoremap <C-K> <C-\>

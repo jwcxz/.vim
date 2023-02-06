@@ -13,6 +13,8 @@ else
     set lazyredraw
 endif
 
+set updatetime=300
+
 set cursorline
 set laststatus=2
 set foldlevelstart=99
@@ -26,6 +28,7 @@ if has('multi_byte')
     set list
     set listchars=tab:»·,trail:·
     set fillchars=vert:┃
+    set fillchars+=foldopen:▾,foldsep:│,foldclose:▸
 endif
 
 if has('gui_running')
@@ -46,7 +49,8 @@ function! SetColorscheme()
         let &t_8b="\e[48;2;%ld;%ld;%ldm"
         set termguicolors
 
-        if has('nvim')
+        " TODO: clean this up by querying which plugin was installed directly
+        if has('nvim') && CfgProfileIs('complete')
             lua << EOF
             local ok, _ = pcall(require, 'catppuccin')
             if ok then
@@ -82,7 +86,8 @@ endfunction
 call SetColorscheme()
 
 if has('nvim')
-    set pumblend=10
+    set pumblend=15
+    set winblend=15
     set signcolumn=yes
 lua << EOF
     -- https://dev.to/elvessousa/taking-neovim-to-the-moon-274g
@@ -93,9 +98,9 @@ lua << EOF
         virtual_text = false,
         signs = true,
     })
-    vim.cmd([[ autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
+    --vim.cmd([[ autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
     local bufopts = { noremap=true, silent=true, buffer=0 }
-    vim.keymap.set('n', '<leader>xx', function() vim.diagnostic.open_float(nil, {focus=false}) end, bufopts)
+    vim.keymap.set('n', '<space>x', function() vim.diagnostic.open_float(nil, {focus=false}) end, bufopts)
 EOF
 endif
 
@@ -103,6 +108,3 @@ endif
 let g:sneak#prompt = '〉'
 hi link SneakPluginTarget   DiffAdd
 hi link SneakPluginScope    DiffChange
-
-
-" vim: fdm=marker

@@ -22,7 +22,11 @@ let g:lightline = {
                 \ },
             \ }
 
-if has('nvim')
+" the `complete` profile and `portable` profile have different requirements
+" for specifying the colorscheme, as they load different versions of the
+" catppuccin plugin
+" TODO: clean this up by querying which plugin was installed directly
+if CfgProfileIs('complete')
     let g:lightline['colorscheme'] = 'catppuccin'
 else
     let g:lightline['colorscheme'] = 'catppuccin_mocha'

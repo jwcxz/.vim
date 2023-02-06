@@ -1,3 +1,5 @@
+(This is an outdated wishlist that needs to be updated before it's evaluated.)
+
 Auto Setup
 ----------
 

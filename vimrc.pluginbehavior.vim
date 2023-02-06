@@ -1,3 +1,11 @@
+" for all loaded plugins, look for a correspondingly-named
+" `bundle.config/PLUGIN.vim` and source it if it exists.  Lua code still needs
+" to be protect with a `pcall()` test, as discussed in
+" https://github.com/nanotee/nvim-lua-guide#modules
+
+" TODO: eliminate the need to include manual checks in Lua code-blocks,
+" potentially by sourcing Lua scripts directly
+
 let g:cfg_bundle_config_dir = g:cfg_vimcfg_dir.'/bundle.config'
 
 for bundle in keys(g:plugs)
@@ -13,6 +21,3 @@ for bundle in keys(g:plugs)
 
     exec 'source ' . bcfg
 endfor
-
-
-" vim: fdm=marker

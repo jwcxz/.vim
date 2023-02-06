@@ -62,5 +62,6 @@ if has('nvim')
     tnoremap <C-a><C-a> <C-a>
 endif
 
-
-" vim: fdm=marker
+" easy system clipboard access
+noremap <leader>y "+y
+noremap <leader>p "+p
