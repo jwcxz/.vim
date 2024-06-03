@@ -6,4 +6,4 @@ if ok then
 end
 EOF
 
-noremap <F11> <cmd>TroubleToggle<cr>
+noremap <F11> <cmd>TroubleToggle document_diagnostics<cr>

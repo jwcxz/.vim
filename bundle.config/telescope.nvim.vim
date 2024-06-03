@@ -1,7 +1,7 @@
 lua << EOF
 local ok, _ = pcall(require, 'telescope')
 if ok then
-    local trouble = require('trouble.providers.telescope')
+    local trouble = require('trouble.sources.telescope')
 
     require('telescope').setup({
         defaults = {
@@ -25,10 +25,10 @@ if ok then
                     ["<C-j>"] = "move_selection_next",
                     ["<C-k>"] = "move_selection_previous",
 
-                    ["<C-t>"] = trouble.open_with_trouble,
+                    ["<C-t>"] = trouble.open,
                 },
                 n = {
-                    ["<C-t>"] = trouble.open_with_trouble,
+                    ["<C-t>"] = trouble.open,
                 }
             }
         }

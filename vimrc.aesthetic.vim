@@ -102,7 +102,7 @@ lua << EOF
     })
     --vim.cmd([[ autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
     local bufopts = { noremap=true, silent=true, buffer=0 }
-    vim.keymap.set('n', '<space>x', function() vim.diagnostic.open_float(nil, {focus=false}) end, bufopts)
+    vim.keymap.set('n', 'gx', function() vim.diagnostic.open_float(nil, {focus=false}) end, bufopts)
 EOF
 endif
 

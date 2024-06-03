@@ -75,7 +75,6 @@ Plug 'jwcxz/vim-vdb'
 Plug 'jwcxz/vim-logcp'
 Plug 'ARM9/arm-syntax-vim'
 Plug 'nvim-treesitter/nvim-treesitter', extend({'do': ':TSUpdate'}, PlugDisableForPortable())
-Plug 'lewis6991/spellsitter.nvim', PlugDisableForPortable()
 
 
 " window management
@@ -126,7 +125,6 @@ Plug 'vim-scripts/verilog_systemverilog.vim'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'tpope/vim-surround'
 Plug 'Konfekt/FastFold'
-Plug 'tpope/vim-markdown'
 Plug 'suan/vim-instant-markdown'
 Plug 'jwcxz/vim-instant-wavedrom'
 Plug 'tpope/vim-fugitive'
