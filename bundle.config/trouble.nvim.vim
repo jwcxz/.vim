@@ -6,4 +6,4 @@ if ok then
 end
 EOF
 
-noremap <F11> <cmd>TroubleToggle document_diagnostics<cr>
+noremap <F11> <cmd>Trouble diagnostics toggle filter.buf=0<cr>
