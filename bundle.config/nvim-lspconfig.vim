@@ -4,7 +4,7 @@
 "   nvim-lspconfig, cmp-nvim (and its related plugins), vim-vsnip
 "
 " Required external dependencies:
-"   npm install -g vim-language-server pyright vscode-langservers-extracted
+"   npm install -g vim-language-server pyright vscode-langservers-extracted typescript typescript-language-server
 "   clangd
 "   cargo install texlab
 
@@ -214,7 +214,8 @@ if ok then
                 "clangd", '--header-insertion=never'
             }
         },
-        texlab = {}
+        texlab = {},
+        tsserver = {}
     }
 
     for srv, cfg in pairs(lspcfg) do
