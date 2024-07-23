@@ -13,3 +13,9 @@ augroup ft_c_cpp
         au Filetype c,cpp setlocal foldmethod=syntax | FastFoldUpdate
     endif
 augroup END
+
+
+augroup ft_markdown
+    au!
+    au Filetype markdown setlocal cinwords=
+augroup END

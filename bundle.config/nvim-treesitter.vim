@@ -8,7 +8,12 @@ if ok then
         auto_install = true,
         highlight = {
             enable = true,
-            additional_vim_regex_highlighting = false,
+            additional_vim_regex_highlighting = { "markdown" },
+            disable = { "markdown" },
+        },
+        indent = {
+            enable = true,
+            disable = { "markdown" },
         }
     }
 end
