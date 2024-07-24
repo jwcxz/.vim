@@ -18,7 +18,7 @@
 "   \end{itemize}
 
 
-" todo: replace with a proper formatexpr that correctly formats item
+" TODO: replace with a proper formatexpr that correctly formats item
 " blocks fully
 setlocal fo+=2
 abbreviate <buffer> \item \item<Space><Space>
@@ -43,23 +43,28 @@ function! GetTeXIndent2() " {{{
 
     " At the start of the file use zero indent.
     if lnum == 0
-        return 0 
+        return 0
     endif
 
     let line = substitute(getline(lnum), '\s*%.*', '','g')     " last line
     let cline = substitute(getline(v:lnum), '\s*%.*', '', 'g') " current line
 
+    let ccol = 1
+    while cline[ccol] =~ '\s'
+        let ccol += 1
+    endwhile
+
     "  We are in verbatim, so do what our user what.
-    if synIDattr(synID(v:lnum, indent(v:lnum), 1), "name") == "texZone"
+    if synIDattr(synID(v:lnum, ccol, 1), "name") == "texZone"
         if empty(cline)
             return indent(lnum)
         else
             return indent(v:lnum)
-        end
+        endif
     endif
-    
+
     if lnum == 0
-        return 0 
+        return 0
     endif
 
     let ind = indent(lnum)
@@ -72,18 +77,20 @@ function! GetTeXIndent2() " {{{
 
     " Add a 'shiftwidth' after beginning of environments.
     " Don't add it for \begin{document} and \begin{verbatim}
-    ""if line =~ '^\s*\\begin{\(.*\)}'  && line !~ 'verbatim' 
+    " if line =~ '^\s*\\begin{\(.*\)}'  && line !~ 'verbatim'
     " LH modification : \begin does not always start a line
     " ZYC modification : \end after \begin won't cause wrong indent anymore
-    if line =~ '\\begin{.*}' && line !~ g:tex_noindent_env
-        let ind = ind + &sw
-        let stay = 0
+    if line =~ '\\begin{.*}' 
+        if line !~ g:tex_noindent_env
+            let ind = ind + shiftwidth()
+            let stay = 0
+        endif
 
         if g:tex_indent_items
             " Add another sw for item-environments
             if line =~ g:tex_itemize_env
-                " HACK: 2*&sw
-                let ind = ind + 2*&sw
+                " HACK: 2*shiftwidth()
+                let ind = ind + 2*shiftwidth()
                 let stay = 0
             endif
         endif
@@ -102,40 +109,38 @@ function! GetTeXIndent2() " {{{
         if g:tex_indent_items
             " Remove another sw for item-environments
             if cline =~ g:tex_itemize_env
-                " HACK: 2*&sw
-                let ind = ind - 2*&sw
+                " HACK: 2*shiftwidth()
+                let ind = ind - 2*shiftwidth()
                 let stay = 0
             endif
         endif
 
-        let ind = ind - &sw
+        let ind = ind - shiftwidth()
         let stay = 0
     endif
 
     if g:tex_indent_brace
-        let char = line[strlen(line)-1]
-        if char == '[' || char == '{'
-            let ind += &sw
+        if line =~ '[[{]$'
+            let ind += shiftwidth()
             let stay = 0
         endif
 
-        let cind = indent(v:lnum)
-        let char = cline[cind]
-        if (char == ']' || char == '}') &&
-                    \ s:CheckPairedIsLastCharacter(v:lnum, cind)
-            let ind -= &sw
+        if cline =~ '^\s*\\\?[\]}]' && s:CheckPairedIsLastCharacter(v:lnum, ccol)
+            let ind -= shiftwidth()
             let stay = 0
         endif
 
-        for i in range(indent(lnum)+1, strlen(line)-1)
-            let char = line[i]
-            if char == ']' || char == '}'
-                if s:CheckPairedIsLastCharacter(lnum, i)
-                    let ind -= &sw
-                    let stay = 0
+        if line !~ '^\s*\\\?[\]}]'
+            for i in range(1, strlen(line)-1)
+                let char = line[i]
+                if char == ']' || char == '}'
+                    if s:CheckPairedIsLastCharacter(lnum, i)
+                        let ind -= shiftwidth()
+                        let stay = 0
+                    endif
                 endif
-            endif
-        endfor
+            endfor
+        endif
     endif
 
     " Special treatment for 'item'
@@ -144,20 +149,21 @@ function! GetTeXIndent2() " {{{
     if g:tex_indent_items
         " '\item' or '\bibitem' itself:
         if cline =~ g:tex_items
-            " HACK: 2*&sw
-            let ind = ind - 2*&sw
+            " HACK: 2*shiftwidth()
+            let ind = ind - 2*shiftwidth()
             let stay = 0
         endif
-        " lines following to '\item' are intented once again:
+        " lines following to '\item' are indented once again:
         if line =~ g:tex_items
-            " HACK: 2*&sw
-            let ind = ind + 2*&sw
+            " HACK: 2*shiftwidth()
+            let ind = ind + 2*shiftwidth()
             let stay = 0
         endif
     endif
 
-    if stay
-        " If there is no obvious indentation hint, we trust our user.
+    if stay && mode() == 'i'
+        " If there is no obvious indentation hint, and indentation is triggered
+        " in insert mode, we trust our user.
         if empty(cline)
             return ind
         else
@@ -179,13 +185,13 @@ function! s:GetLastBeginIndentation(lnum) " {{{
             let matchend -= 1
         endif
         if matchend == 0
-            if line =~ g:tex_itemize_env
-                return indent(lnum) + 2 * &sw
-            endif
             if line =~ g:tex_noindent_env
                 return indent(lnum)
             endif
-            return indent(lnum) + &sw
+            if line =~ g:tex_itemize_env
+                return indent(lnum) + 2 * shiftwidth()
+            endif
+            return indent(lnum) + shiftwidth()
         endif
     endfor
     return -1
@@ -213,17 +219,20 @@ function! s:GetEndIndentation(lnum) " {{{
             let min_indent = min([min_indent, indent(lnum)])
         endif
     endfor
-    return min_indent - &sw
+    return min_indent - shiftwidth()
 endfunction
 
 " Most of the code is from matchparen.vim
 function! s:CheckPairedIsLastCharacter(lnum, col) "{{{
-    " Get the character under the cursor and check if it's in 'matchpairs'.
     let c_lnum = a:lnum
     let c_col = a:col+1
 
+    let line = getline(c_lnum)
+    if line[c_col-1] == '\'
+        let c_col = c_col + 1
+    endif
+    let c = line[c_col-1]
 
-    let c = getline(c_lnum)[c_col-1]
     let plist = split(&matchpairs, '.\zs[:,]')
     let i = index(plist, c)
     if i < 0
