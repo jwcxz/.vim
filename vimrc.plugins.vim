@@ -98,7 +98,7 @@ Plug 'quangnguyen30192/cmp-nvim-tags', PlugDisableForPortable()
 
 
 " file hierarchy view
-Plug 'scrooloose/nerdtree', PlugDisableForPortable()
+Plug 'scrooloose/nerdtree', PlugDisableForComplete()
 Plug 'nvim-lua/plenary.nvim', PlugDisableForPortable()
 Plug 'nvim-tree/nvim-web-devicons', PlugDisableForPortable()
 Plug 'MunifTanjim/nui.nvim', PlugDisableForPortable()
@@ -120,7 +120,8 @@ Plug 'mileszs/ack.vim'
 Plug 'chrisbra/matchit'
 Plug 'chrisbra/Recover.vim'
 Plug 'godlygeek/tabular'
-Plug 'yegappan/taglist'
+Plug 'stevearc/aerial.nvim', PlugDisableForPortable()
+Plug 'yegappan/taglist', PlugDisableForComplete()
 Plug 'vim-scripts/verilog_systemverilog.vim'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'tpope/vim-surround'

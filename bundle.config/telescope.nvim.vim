@@ -31,7 +31,17 @@ if ok then
                     ["<C-t>"] = trouble.open,
                 }
             }
-        }
+        },
+        extensions = {
+            aerial = {
+                show_nesting = {
+                    ["_"] = false,
+                    json = true,
+                    yaml = true,
+                },
+                show_columns = "both",
+            }
+        },
     })
 end
 
@@ -48,8 +58,10 @@ nnoremap <space>c <cmd>Telescope command_history<cr>
 nnoremap <space>p <cmd>Telescope builtin<cr>
 nnoremap <space>s <cmd>Telescope treesitter<cr>
 nnoremap <space>* <cmd>Telescope grep_string<cr>
+nnoremap <space>a <cmd>Telescope aerial<cr>
 
 " force of habit
 nnoremap ;r <cmd>Telescope find_files<cr>
 nnoremap ;f <cmd>Telescope find_files<cr>
 nnoremap ;; <cmd>Telescope buffers<cr>
+nnoremap ;a <cmd>Telescope aerial<cr>
