@@ -215,7 +215,7 @@ if ok then
             }
         },
         texlab = {},
-        tsserver = {}
+        ts_ls = {}
     }
 
     for srv, cfg in pairs(lspcfg) do
