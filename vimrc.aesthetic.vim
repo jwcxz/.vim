@@ -91,6 +91,7 @@ if has('nvim')
     set pumblend=15
     set winblend=15
     set signcolumn=yes
+    set winborder=rounded
 lua << EOF
     -- https://dev.to/elvessousa/taking-neovim-to-the-moon-274g
     -- TODO: refactor

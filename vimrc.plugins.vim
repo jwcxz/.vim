@@ -84,8 +84,10 @@ Plug 'dhruvasagar/vim-zoom'
 
 " completion
 "   currently, the only supported configuration is nvim-lsp_nvim-cmp (i.e. use
-"   neovim's native LSP support, add nvim-lspconfig for configuration, and add
-"   nvim-cmp and some of its dependencies for auto-completion
+"   neovim's native LSP support, add nvim-lspconfig for configuration, add
+"   nvim-cmp and some of its dependencies for auto-completion, and add
+"   lsp-signature for displaying the signature
+"   TODO: need a better name that describes this set of dependencies
 Plug 'neovim/nvim-lspconfig', PlugDisableForPortable()
 Plug 'hrsh7th/cmp-nvim-lsp', PlugDisableForPortable()
 Plug 'hrsh7th/cmp-buffer', PlugDisableForPortable()
@@ -95,6 +97,7 @@ Plug 'hrsh7th/nvim-cmp', PlugDisableForPortable()
 Plug 'hrsh7th/cmp-vsnip', PlugDisableForPortable()
 Plug 'hrsh7th/vim-vsnip', PlugDisableForPortable()
 Plug 'quangnguyen30192/cmp-nvim-tags', PlugDisableForPortable()
+Plug 'ray-x/lsp_signature.nvim', PlugDisableForPortable()
 
 
 " file hierarchy view

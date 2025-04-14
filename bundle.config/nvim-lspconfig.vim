@@ -144,8 +144,10 @@ if ok then
                 { name = 'nvim_lsp' },
                 { name = 'vsnip' },
                 { name = 'tags' },
-                { name = 'buffer' },
                 { name = 'path' },
+            },
+            {
+                { name = 'buffer' },
             })
     })
 
@@ -172,6 +174,17 @@ if ok then
     -- nvim-lspconfig setup
     -- --------------------
 
+    -- lsp_signature configuration, which is used in on_attach
+
+    local lsp_signature = require('lsp_signature')
+    local lsp_signature_config = {
+        bind = true,
+        hint_enable = false,
+        handler_opts = {
+            border = "rounded"
+        }
+    }
+
     local on_attach = function(client, bufnr)
         -- Enable completion triggered by <c-x><c-o>
         vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -192,17 +205,18 @@ if ok then
         --vim.keymap.set('n', '<M-k>', vim.lsp.buf.signature_help, bufopts)
         --vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
         --vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-        --vim.keymap.set('n', '<space>wl', function()
-            --print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-        --end, bufopts)
+        --vim.keymap.set('n', '<space>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, bufopts)
         --vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
         --vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
         --vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+
+        lsp_signature.on_attach(lsp_signature_config, bufnr)
     end
 
     local lspc = require('lspconfig')
 
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
+    capabilities.textDocument.completion.completionItem.snippetSupport = false
 
     -- configuration for requested LSP servers
     local lspcfg = {
@@ -248,10 +262,6 @@ if ok then
         -- set up language server
         lspc[srv].setup(new_cfg)
     end
-
-    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-        border = "rounded",
-    })
 end
 EOF
 
