@@ -13,3 +13,13 @@ augroup ft_c_cpp
         au Filetype c,cpp setlocal foldmethod=syntax | FastFoldUpdate
     endif
 augroup END
+
+
+autocmd WinClosed * nested call s:HandleWinClosed(expand('<amatch>'))
+
+function! s:HandleWinClosed(closed_win_id)
+    if win_getid() != str2nr(a:closed_win_id)
+        return
+    endif
+    wincmd p
+endfunction

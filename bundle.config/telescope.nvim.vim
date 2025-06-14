@@ -6,6 +6,7 @@ if ok then
     require('telescope').setup({
         defaults = {
             winblend = 15,
+            border = false,
             wrap_results = true,
             sorting_strategy = "ascending",
             layout_strategy = "vertical",
@@ -46,10 +47,14 @@ if ok then
 end
 
 require('telescope').load_extension('fzf')
+require('telescope').load_extension('ui-select')
+require('telescope').load_extension('cmdline')
 EOF
 
-nnoremap <space>r <cmd>Telescope find_files<cr>
-nnoremap <space>f <cmd>Telescope find_files<cr>
+nnoremap Q <cmd>Telescope cmdline<cr>
+
+nnoremap <space>r <cmd>Telescope find_files follow=true<cr>
+nnoremap <space>f <cmd>Telescope find_files follow=true<cr>
 nnoremap <space>g <cmd>Telescope live_grep<cr>
 nnoremap <space><space> <cmd>Telescope buffers<cr>
 nnoremap <space>t <cmd>Telescope tags<cr>
@@ -61,7 +66,7 @@ nnoremap <space>* <cmd>Telescope grep_string<cr>
 nnoremap <space>a <cmd>Telescope aerial<cr>
 
 " force of habit
-nnoremap ;r <cmd>Telescope find_files<cr>
-nnoremap ;f <cmd>Telescope find_files<cr>
+nnoremap ;r <cmd>Telescope find_files follow=true<cr>
+nnoremap ;f <cmd>Telescope find_files follow=true<cr>
 nnoremap ;; <cmd>Telescope buffers<cr>
 nnoremap ;a <cmd>Telescope aerial<cr>

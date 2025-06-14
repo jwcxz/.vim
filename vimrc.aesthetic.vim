@@ -54,7 +54,7 @@ function! SetColorscheme()
             lua << EOF
             local ok, _ = pcall(require, 'catppuccin')
             if ok then
-                vim.g.catppuccin_flavour = "mocha"
+                vim.g.catppuccin_flavour = "macchiato"
                 require('catppuccin').setup({
                     transparent_background = true,
                 })

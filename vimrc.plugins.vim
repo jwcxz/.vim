@@ -78,7 +78,7 @@ Plug 'nvim-treesitter/nvim-treesitter', extend({'do': ':TSUpdate'}, PlugDisableF
 
 
 " window management
-Plug 't9md/vim-choosewin'
+" TODO: replace 't9md/vim-choosewin'
 Plug 'dhruvasagar/vim-zoom'
 
 
@@ -112,9 +112,11 @@ Plug 'nvim-neo-tree/neo-tree.nvim', PlugDisableForPortable()
 " requires plenary (above)
 Plug 'nvim-telescope/telescope.nvim', extend({ 'branch': '0.1.x' }, PlugDisableForPortable())
 Plug 'nvim-telescope/telescope-fzf-native.nvim', extend({ 'do': 'make' }, PlugDisableForPortable())
+Plug 'nvim-telescope/telescope-ui-select.nvim', PlugDisableForPortable()
+Plug 'jonarrien/telescope-cmdline.nvim', PlugDisableForPortable()
 Plug 'folke/trouble.nvim', PlugDisableForPortable()
 " fallback for portable usage
-Plug 'Yggdroot/LeaderF', extend({ 'do': './install.sh' }, PlugDisableForComplete())
+" TODO: replace 'Yggdroot/LeaderF', extend({ 'do': './install.sh' }, PlugDisableForComplete())
 
 
 " other plugins
@@ -128,11 +130,13 @@ Plug 'yegappan/taglist', PlugDisableForComplete()
 Plug 'vim-scripts/verilog_systemverilog.vim'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'tpope/vim-surround'
-Plug 'suan/vim-instant-markdown'
 Plug 'jwcxz/vim-instant-wavedrom'
 Plug 'tpope/vim-fugitive'
 Plug 'tmhedberg/SimpylFold'
 
+" markdown
+Plug 'suan/vim-instant-markdown'
+Plug 'MeanderingProgrammer/render-markdown.nvim', PlugDisableForPortable()
 
 " text objects
 Plug 'wellle/targets.vim'
@@ -147,6 +151,13 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
 "Plug 'easymotion/vim-easymotion'
 "Plug 'haya14busa/incsearch-easymotion.vim'
+
+
+" add plugins from local config if present
+let pcfg_local = g:cfg_vimcfg_local_dir.'/vimrc.plugins.vim'
+if filereadable(pcfg_local)
+    exec 'source ' . pcfg_local
+endif
 
 
 " find and enable all local plugins

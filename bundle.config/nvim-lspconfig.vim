@@ -142,6 +142,7 @@ if ok then
 
         sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
+                { name = 'render-markdown' },
                 { name = 'vsnip' },
                 { name = 'tags' },
                 { name = 'path' },

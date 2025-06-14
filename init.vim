@@ -16,12 +16,15 @@ let g:cfg_resolved_vimrc = resolve(expand($MYVIMRC))
 " https://stackoverflow.com/q/16485748
 let g:cfg_vimcfg_dir = fnamemodify(g:cfg_resolved_vimrc, ':h')
 
-" configuration files for local overrides (ignored by git)
+" configuration directory for local overrides
+let g:cfg_vimcfg_local_dir = fnamemodify(g:cfg_vimcfg_dir, ':h') . '/.vim.local'
 " the "before" override is sourced before all other configuration (besides the
 " rest of this bootstrapping code
-let g:cfg_vimcfg_local_before = g:cfg_vimcfg_dir.'/vimrc.local.before.vim'
+let g:cfg_vimcfg_local_before = g:cfg_vimcfg_local_dir.'/vimrc.before.vim'
 " the "after" override is sourced after all other configuration
-let g:cfg_vimcfg_local_after = g:cfg_vimcfg_dir.'/vimrc.local.after.vim'
+let g:cfg_vimcfg_local_after = g:cfg_vimcfg_local_dir.'/vimrc.after.vim'
+" other configuration files attempt to reference specific files in this local
+" directory as well
 
 
 

@@ -12,17 +12,19 @@ if CfgProfileIs('noplugin')
 endif
 
 let g:cfg_bundle_config_dir = g:cfg_vimcfg_dir.'/bundle.config'
+let g:cfg_bundle_config_local_dir = g:cfg_vimcfg_local_dir.'/bundle.config'
 
 for bundle in keys(g:plugs)
-    let bcfg = g:cfg_bundle_config_dir.'/'.bundle.'.vim'
-
-    if !filereadable(bcfg)
-        continue
-    endif
-
     if has_key(g:plugs[bundle], 'on') && (len(g:plugs[bundle]['on']) == 0)
         continue
     endif
 
-    exec 'source ' . bcfg
+    let bcfg_local = g:cfg_bundle_config_local_dir.'/'.bundle.'.vim'
+    let bcfg = g:cfg_bundle_config_dir.'/'.bundle.'.vim'
+
+    if filereadable(bcfg_local)
+        exec 'source ' . bcfg_local
+    elseif filereadable(bcfg)
+        exec 'source ' . bcfg
+    endif
 endfor
