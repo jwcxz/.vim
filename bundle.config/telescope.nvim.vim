@@ -6,7 +6,7 @@ if ok then
     require('telescope').setup({
         defaults = {
             winblend = 15,
-            border = false,
+            border = true,
             wrap_results = true,
             sorting_strategy = "ascending",
             layout_strategy = "vertical",

@@ -4,7 +4,7 @@
 "   nvim-lspconfig, cmp-nvim (and its related plugins), vim-vsnip
 "
 " Required external dependencies:
-"   npm install -g vim-language-server pyright vscode-langservers-extracted typescript typescript-language-server
+"   npm install -g vim-language-server basedpyright vscode-langservers-extracted typescript typescript-language-server
 "   clangd
 "   cargo install texlab
 
@@ -222,7 +222,7 @@ if ok then
     -- configuration for requested LSP servers
     local lspcfg = {
         vimls = {},
-        pyright = {},
+        basedpyright = {},
         jsonls = {},
         clangd = {
             cmd = {

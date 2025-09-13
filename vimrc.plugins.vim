@@ -78,7 +78,7 @@ Plug 'nvim-treesitter/nvim-treesitter', extend({'do': ':TSUpdate'}, PlugDisableF
 
 
 " window management
-" TODO: replace 't9md/vim-choosewin'
+Plug 'yorickpeterse/nvim-window', PlugDisableForPortable()
 Plug 'dhruvasagar/vim-zoom'
 
 
