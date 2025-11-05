@@ -12,7 +12,7 @@ if ok then
         },
         indent = {
             enable = true,
-            disable = { "markdown", "yaml", "python" },
+            disable = { "markdown", "yaml" },
         }
     }
 end
