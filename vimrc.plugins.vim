@@ -137,6 +137,7 @@ Plug 'tmhedberg/SimpylFold'
 " markdown
 Plug 'suan/vim-instant-markdown'
 Plug 'MeanderingProgrammer/render-markdown.nvim', PlugDisableForPortable()
+Plug 'Kicamon/markdown-table-mode.nvim', PlugDisableForPortable()
 
 " text objects
 Plug 'wellle/targets.vim'
