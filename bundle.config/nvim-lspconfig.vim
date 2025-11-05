@@ -214,8 +214,6 @@ if ok then
         lsp_signature.on_attach(lsp_signature_config, bufnr)
     end
 
-    local lspc = require('lspconfig')
-
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
     capabilities.textDocument.completion.completionItem.snippetSupport = false
 
@@ -261,7 +259,8 @@ if ok then
         end
 
         -- set up language server
-        lspc[srv].setup(new_cfg)
+        vim.lsp.config(srv, new_cfg)
+        vim.lsp.enable(srv)
     end
 end
 EOF
