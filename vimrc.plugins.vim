@@ -115,6 +115,7 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', extend({ 'do': 'make' }, PlugDi
 Plug 'nvim-telescope/telescope-ui-select.nvim', PlugDisableForPortable()
 Plug 'jonarrien/telescope-cmdline.nvim', PlugDisableForPortable()
 Plug 'folke/trouble.nvim', PlugDisableForPortable()
+Plug 'ahkohd/context.nvim', PlugDisableForPortable()
 " fallback for portable usage
 " TODO: replace 'Yggdroot/LeaderF', extend({ 'do': './install.sh' }, PlugDisableForComplete())
 
