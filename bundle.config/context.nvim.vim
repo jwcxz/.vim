@@ -9,6 +9,8 @@ if ok then
         }
     })
 
-    vim.keymap.set({'n', 'v'}, '<leader>c', function() require("context").pick() end, { silent = true, desc = 'Context' })
+    vim.keymap.set({'n', 'v'}, '<leader>c', function()
+        require("context").pick()
+    end, { silent = true, desc = 'Context' })
 end
 EOF
