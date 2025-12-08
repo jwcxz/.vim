@@ -98,6 +98,7 @@ Plug 'hrsh7th/cmp-vsnip', PlugDisableForPortable()
 Plug 'hrsh7th/vim-vsnip', PlugDisableForPortable()
 Plug 'quangnguyen30192/cmp-nvim-tags', PlugDisableForPortable()
 Plug 'ray-x/lsp_signature.nvim', PlugDisableForPortable()
+Plug 'nvim-treesitter/nvim-treesitter-context', PlugDisableForPortable()
 
 
 " file hierarchy view
@@ -134,6 +135,7 @@ Plug 'tpope/vim-surround'
 Plug 'jwcxz/vim-instant-wavedrom'
 Plug 'tpope/vim-fugitive'
 Plug 'tmhedberg/SimpylFold'
+Plug 'esmuellert/vscode-diff.nvim', extend({ 'do': './build.sh' }, PlugDisableForPortable())
 
 " markdown
 Plug 'suan/vim-instant-markdown'
