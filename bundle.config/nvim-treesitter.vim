@@ -1,7 +1,7 @@
 lua << EOF
 local ok, _ = pcall(require, 'nvim-treesitter')
 if ok then
-    require'nvim-treesitter.configs'.setup {
+    require'nvim-treesitter'.setup {
         ensure_installed = { "c", "cpp", "gitignore", "latex", "lua", "make",
             "markdown", "markdown_inline", "python", "vim", "yaml" },
         sync_install = false,
