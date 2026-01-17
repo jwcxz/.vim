@@ -135,7 +135,7 @@ Plug 'tpope/vim-surround'
 Plug 'jwcxz/vim-instant-wavedrom'
 Plug 'tpope/vim-fugitive'
 Plug 'tmhedberg/SimpylFold'
-Plug 'esmuellert/vscode-diff.nvim', extend({ 'do': './build.sh' }, PlugDisableForPortable())
+Plug 'esmuellert/codediff.nvim', extend({ 'do': './build.sh' }, PlugDisableForPortable())
 
 " markdown
 Plug 'suan/vim-instant-markdown'
