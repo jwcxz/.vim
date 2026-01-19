@@ -111,7 +111,7 @@ Plug 'nvim-neo-tree/neo-tree.nvim', PlugDisableForPortable()
 
 " selection
 " requires plenary (above)
-Plug 'nvim-telescope/telescope.nvim', extend({ 'branch': '0.1.x' }, PlugDisableForPortable())
+Plug 'nvim-telescope/telescope.nvim', PlugDisableForPortable()
 Plug 'nvim-telescope/telescope-fzf-native.nvim', extend({ 'do': 'make' }, PlugDisableForPortable())
 Plug 'nvim-telescope/telescope-ui-select.nvim', PlugDisableForPortable()
 Plug 'jonarrien/telescope-cmdline.nvim', PlugDisableForPortable()
