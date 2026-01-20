@@ -1,11 +1,11 @@
-REPO = $(abspath .)
-
-REPO_INIT_FILE := $(REPO)/init.vim
-INIT_FILES := $(addprefix $(HOME)/,.vimrc .config/nvim/init.vim)
+DESTS = ${HOME}/.vimrc ${HOME}/.config/nvim
 
 .PHONY: all
-all: $(INIT_FILES)
+all: $(DESTS)
 
-$(INIT_FILES): $(REPO_INIT_FILE)
-	mkdir -p $(dir $@)
-	ln -s $< $@
+${HOME}/.vimrc: vimrc
+	test -e $@ || ln -s $(abspath $<) $@
+
+${HOME}/.config/nvim: .
+	mkdir -p ${HOME}/.config
+	test -e $@ || ln -s $(abspath $<) $@

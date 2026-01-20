@@ -1,5 +1,0 @@
---langdef=jsim
---langmap=jsim:.jsim
---regex-jsim=/^\.subckt[ \t]+([^ \t]+)[ \t]+(.*)/\1: \2/s,Subcircuits/
---regex-jsim=/^\.plot[ \t]+(.+)/\1/p,Plots/
---regex-jsim=/^[^ \t]*X([^ \t]+)[ \t]+(.+)[ \t]+([^ \t]+)/\1[\3]: \2/x,Instantiations/

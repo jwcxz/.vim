@@ -1,3 +1,5 @@
+lua/layers/*/
+
 bundle.remote/
 bundle.plug/
 spell/
