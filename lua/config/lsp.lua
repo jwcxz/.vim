@@ -48,6 +48,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
         opts.desc = "Show hover info"
         vim.keymap.set('n', '<leader>k', vim.lsp.buf.hover, opts)
 
+        opts.desc = "Show signature"
+        vim.keymap.set({'n','i','v'}, '<C-k>', vim.lsp.buf.signature_help, opts)
+
         opts.desc = "Show line diagnostics"
         vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
 

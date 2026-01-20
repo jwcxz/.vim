@@ -5,6 +5,6 @@ end
 
 return {
     cmd = {
-        clangd_path, '--header-insertion=never'
+        clangd_path, '--header-insertion=never', '--function-arg-placeholders=0'
     }
 }
