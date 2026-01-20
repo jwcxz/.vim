@@ -31,7 +31,7 @@ local kind_icons = {
 local source_icons = {
     buffer   = "𝓑",
     nvim_lsp = "𝓛",
-    vsnip    = "𝓢",
+    -- vsnip    = "𝓢",
     path     = "𝓟",
     tags     = "𝓣",
     cmdline  = "𝓒",
@@ -71,11 +71,11 @@ return {
             local cmp = require('cmp')
 
             cmp.setup({
-                snippet = {
-                    expand = function(args)
-                        vim.fn["vsnip#anonymous"](args.body)
-                    end,
-                },
+                -- snippet = {
+                --     expand = function(args)
+                --         vim.fn["vsnip#anonymous"](args.body)
+                --     end,
+                -- },
 
                 window = {
                     completion = cmp.config.window.bordered(),
@@ -92,8 +92,8 @@ return {
                     ["<Tab>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             cmp.select_next_item()
-                        elseif vim.fn["vsnip#available"](1) == 1 then
-                            feedkey("<Plug>(vsnip-expand-or-jump)", "")
+                        -- elseif vim.fn["vsnip#available"](1) == 1 then
+                        --     feedkey("<Plug>(vsnip-expand-or-jump)", "")
                         elseif has_words_before() then
                             cmp.complete()
                         else
@@ -104,8 +104,8 @@ return {
                     ["<S-Tab>"] = cmp.mapping(function()
                         if cmp.visible() then
                             cmp.select_prev_item()
-                        elseif vim.fn["vsnip#jumpable"](-1) == 1 then
-                            feedkey("<Plug>(vsnip-jump-prev)", "")
+                        -- elseif vim.fn["vsnip#jumpable"](-1) == 1 then
+                        --     feedkey("<Plug>(vsnip-jump-prev)", "")
                         end
                     end, { "i", "s" }),
                 }),
