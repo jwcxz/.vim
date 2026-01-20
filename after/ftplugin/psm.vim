@@ -5,6 +5,8 @@
 " Vim URL:  http://www.vim.org/lang.html
 " based on the MCS51A assembly syntax file
 
+let g:tlist_psm_settings  = 'psm;l:labels'
+
 if version < 600
   syntax clear
 elseif exists("b:current_syntax")

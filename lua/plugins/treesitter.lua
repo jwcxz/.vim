@@ -14,7 +14,7 @@ return {
                 additional_vim_regex_highlighting = { "markdown" },
             },
             indent = {
-                enable = true,
+                enable = false,
                 disable = { "markdown", "yaml" },
             }
         },
@@ -23,7 +23,8 @@ return {
 
             vim.opt.foldmethod = 'expr'
             vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-            vim.opt.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+            -- TODO: enable this at some point
+            --vim.opt.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
         end
     },
 

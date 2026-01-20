@@ -7,6 +7,8 @@
 " License:   This file and the entire vim-jsim package is distributed under
 "            the MIT License
 
+let tlist_jsim_settings = 'jsim;s:subcircuits;p:plots;x:instantiations'
+
 if exists("b:current_syntax")
 	finish
 endif
