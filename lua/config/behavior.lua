@@ -16,8 +16,8 @@ vim.opt.smartindent = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
--- TODO: decide on signcolumn
---vim.opt.signcolumn = 'no'
+vim.opt.number = true
+vim.opt.signcolumn = 'number'
 
 -- latex configuration
 -- TODO: find somewhere else to move this
