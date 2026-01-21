@@ -168,12 +168,4 @@ return {
         cmd = "CodeDiff",
     },
 
-    {
-        'haya14busa/incsearch.vim',
-        keys = {
-            { '/', '<Plug>(incsearch-forward)' },
-            { '?', '<Plug>(incsearch-backward)' },
-        }
-    },
-
 }
