@@ -5,6 +5,7 @@ enabled_lsp_servers = {
     'clangd',
     'texlab',       -- brew install texlab
     'ts_ls',        -- npm install -g typescript-language-server typescript
+    'lua_ls',       -- brew install lua-language-server
 }
 
 for _, srv in ipairs(enabled_lsp_servers) do
