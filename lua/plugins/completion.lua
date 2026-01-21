@@ -1,54 +1,79 @@
 return {
-    'saghen/blink.cmp',
+    {
+        'saghen/blink.cmp',
 
-    dependencies = { 'rafamadriz/friendly-snippets' },
-
-    version = '1.*',
-
-    ---@module 'blink.cmp'
-    ---@type blink.cmp.Config
-    opts = {
-        keymap = {
-            preset = 'enter',
-
-            ['<Up>'] = { function(cmp) return cmp.select_prev({ auto_insert = false }) end, 'fallback' },
-            ['<Down>'] = { function(cmp) return cmp.select_next({ auto_insert = false }) end, 'fallback' },
+        dependencies = {
+            'rafamadriz/friendly-snippets',
+            {
+                'xzbdmw/colorful-menu.nvim',
+                opts = { },
+            }
         },
 
-        appearance = { nerd_font_variant = 'mono' },
+        version = '1.*',
 
-        signature = { enabled = true },
+        ---@module 'blink.cmp'
+        ---@type blink.cmp.Config
+        opts = {
+            keymap = {
+                preset = 'enter',
 
-        completion = {
-            menu = {
-                border = 'rounded',
-                winblend = 15,
-                draw = {
-                    columns = {
-                        { 'label', 'label_description', gap = 1 },
-                        { 'kind_icon', 'source_name', gap = 2 },
+                ['<Up>'] = { function(cmp) return cmp.select_prev({ auto_insert = false }) end, 'fallback' },
+                ['<Down>'] = { function(cmp) return cmp.select_next({ auto_insert = false }) end, 'fallback' },
+            },
+
+            appearance = { nerd_font_variant = 'mono' },
+
+            signature = {
+                enabled = true,
+                window = {
+                    border = 'rounded',
+                    winblend = 15
+                }
+            },
+
+            completion = {
+                menu = {
+                    border = 'rounded',
+                    winblend = 15,
+                    draw = {
+                        columns = {
+                            --{ 'label', 'label_description', gap = 1 },
+                            { 'label', gap = 1 },
+                            { 'kind_icon', 'source_name', gap = 2 },
+                        },
+                        components = {
+                            label = {
+                                text = function(ctx)
+                                    return require("colorful-menu").blink_components_text(ctx)
+                                end,
+                                highlight = function(ctx)
+                                    return require("colorful-menu").blink_components_highlight(ctx)
+                                end,
+                            },
+                        },
                     },
+                },
+
+                documentation = { auto_show = false },
+
+                accept = {
+                    auto_brackets = { enabled = false },
                 },
             },
 
-            documentation = { auto_show = false },
-
-            accept = {
-                auto_brackets = { enabled = false },
+            sources = {
+                default = {
+                    'lsp',
+                    'path',
+                    --'snippets',
+                    'buffer'
+                },
             },
+
+            fuzzy = { implementation = "prefer_rust_with_warning" }
         },
 
-        sources = {
-            default = {
-                'lsp',
-                'path',
-                --'snippets',
-                'buffer'
-            },
-        },
-
-        fuzzy = { implementation = "prefer_rust_with_warning" }
+        opts_extend = { "sources.default" }
     },
-
-    opts_extend = { "sources.default" }
 }
