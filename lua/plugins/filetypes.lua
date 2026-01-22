@@ -12,7 +12,21 @@ return {
     { 'vim-scripts/verilog_systemverilog.vim' },
 
 
-    { 'suan/vim-instant-markdown' },
+    {
+        "iamcco/markdown-preview.nvim",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        ft = { "markdown" },
+        keys = {
+            {
+                "<leader>p", "<cmd>MarkdownPreviewToggle<CR>",
+                silent = true, mode = { 'n' }, desc = "Toggle live Markdown preview"
+            },
+        },
+        build = "cd app && npm install && git restore .",
+        init = function()
+            vim.g.mkdp_filetypes = { "markdown" }
+        end,
+    },
 
     { 'Kicamon/markdown-table-mode.nvim' },
 
