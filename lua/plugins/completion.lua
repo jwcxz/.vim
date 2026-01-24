@@ -16,7 +16,7 @@ return {
         ---@type blink.cmp.Config
         opts = {
             keymap = {
-                preset = 'enter',
+                preset = 'super-tab',
 
                 ['<Up>'] = { function(cmp) return cmp.select_prev({ auto_insert = false }) end, 'fallback' },
                 ['<Down>'] = { function(cmp) return cmp.select_next({ auto_insert = false }) end, 'fallback' },
