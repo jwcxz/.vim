@@ -18,8 +18,7 @@ return {
             keymap = {
                 preset = 'super-tab',
 
-                ['<Up>'] = { function(cmp) return cmp.select_prev({ auto_insert = false }) end, 'fallback' },
-                ['<Down>'] = { function(cmp) return cmp.select_next({ auto_insert = false }) end, 'fallback' },
+                ['<CR>'] = { 'accept', 'fallback' }
             },
 
             appearance = { nerd_font_variant = 'mono' },
@@ -59,6 +58,13 @@ return {
 
                 accept = {
                     auto_brackets = { enabled = false },
+                },
+
+                list = {
+                    selection = {
+                        preselect = false,
+                        auto_insert = false,
+                    },
                 },
             },
 
