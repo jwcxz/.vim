@@ -6,6 +6,7 @@ enabled_lsp_servers = {
     'texlab',       -- brew install texlab
     'ts_ls',        -- npm install -g typescript-language-server typescript
     'lua_ls',       -- brew install lua-language-server
+    'texlab',       -- cargo install --git https://github.com/latex-lsp/texlab
 }
 
 for _, srv in ipairs(enabled_lsp_servers) do
