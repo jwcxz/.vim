@@ -28,7 +28,11 @@ return {
         end,
     },
 
-    { 'Kicamon/markdown-table-mode.nvim' },
+    {
+        'Kicamon/markdown-table-mode.nvim',
+        cmd = { "Mtm" },
+        opts = { }
+    },
 
     {
         'MeanderingProgrammer/render-markdown.nvim',
