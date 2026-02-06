@@ -31,6 +31,9 @@ return {
                 }
             },
 
+            -- TODO: reenable when I find a configuration I like
+            cmdline = { enabled = false },
+
             completion = {
                 menu = {
                     border = 'rounded',
