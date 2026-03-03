@@ -5,26 +5,27 @@ return {
         lazy = false,
         build = ':TSUpdate',
         opts = {
-            ensure_installed = { "c", "cpp", "gitignore", "latex", "lua", "make",
+            -- TODO: make this a table that allows for customization per filetype
+            -- TODO: check if filetypes are identical to treesitter parsers
+            filetypes = { "c", "cpp", "gitignore", "latex", "lua", "make",
                 "markdown", "markdown_inline", "python", "vim", "yaml" },
-            sync_install = false,
-            auto_install = true,
-            highlight = {
-                enable = true,
-                additional_vim_regex_highlighting = { "markdown" },
-            },
-            indent = {
-                enable = false,
-                disable = { "markdown", "yaml" },
-            }
         },
         config = function(_, opts)
-            require("nvim-treesitter").setup(opts)
+            local ts = require("nvim-treesitter")
+            ts.install(opts.install)
 
-            vim.opt.foldmethod = 'expr'
-            vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-            -- TODO: enable this at some point
-            --vim.opt.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+            vim.api.nvim_create_autocmd('FileType', {
+                pattern = opts.filetypes,
+                callback = function()
+                -- syntax highlighting, provided by Neovim
+                vim.treesitter.start()
+                -- folds, provided by Neovim
+                vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+                vim.wo.foldmethod = 'expr'
+                -- indentation, provided by nvim-treesitter
+                vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+                end,
+            })
         end
     },
 
