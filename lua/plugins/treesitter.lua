@@ -12,7 +12,7 @@ return {
         },
         config = function(_, opts)
             local ts = require("nvim-treesitter")
-            ts.install(opts.install)
+            ts.install(opts.filetypes)
 
             vim.api.nvim_create_autocmd('FileType', {
                 pattern = opts.filetypes,
