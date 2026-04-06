@@ -24,35 +24,56 @@ return {
 
     { 'jszakmeister/vim-togglecursor' },
 
-    -- TODO: replace with lualine
     {
-        'itchyny/lightline.vim',
+        'nvim-lualine/lualine.nvim',
 
-        config = function(_, opts)
-            vim.g.lightline = {
-                colorscheme = 'catppuccin',
-                enable = {
-                    statusline = 1,
-                    tabline = 0
+        dependencies = {
+            'nvim-tree/nvim-web-devicons'
+        },
+
+        opts = {
+            sections = {
+                lualine_a = {
+                    { 'mode',
+                        fmt = function(str)
+                            if str == 'V-BLOCK' then
+                                return 'B'
+                            else
+                                return str:sub(1,1)
+                            end
+                        end
+                    },
+                    {
+                        -- indicate when paste mode is enabled
+                        function() return "󰆒" end,
+                        cond = function() return vim.o.paste end,
+                    },
                 },
-                active = {
-                    left = {
-                        { 'mode', 'paste' },
-                        { 'modified', 'relativepath', 'readonly' } },
-                    right = {
-                        { 'lineinfo' },
-                        { 'percent' } }
+                lualine_b = {
+                    'branch',
+                    'diff',
                 },
-                separator = {
-                    left = '',
-                    right = ''
+                lualine_c = {
+                    { 'filename',
+                        path = 3
+                    }
                 },
-                subseparator = {
-                    left = '',
-                    right = ''
+                lualine_x = {
+                    'diagnostics',
+                    'lsp_status'
                 },
-            }
-        end
+                lualine_y = { 'progress' },
+                lualine_z = { 'location' }
+            },
+            inactive_sections = {
+                lualine_a = { },
+                lualine_b = { },
+                lualine_c = { 'filename' },
+                lualine_x = { },
+                lualine_y = { 'progress' },
+                lualine_z = { 'location' }
+            },
+        }
     },
 
     { 'vasconcelloslf/vim-interestingwords' },
