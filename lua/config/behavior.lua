@@ -54,3 +54,5 @@ vim.opt.fillchars = {
                     }
 
 vim.opt.termguicolors = true
+
+vim.g.clipboard = 'osc52'

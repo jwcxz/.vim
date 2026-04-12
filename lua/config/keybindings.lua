@@ -33,3 +33,9 @@ vim.keymap.set('' , '<Esc>n' , ':tabnext<CR>'  , { remap = false , silent = true
 vim.keymap.set('' , '<Esc>p' , ':tabprev<CR>'  , { remap = false , silent = true , desc = 'Previous tab' })
 vim.keymap.set('' , '<Esc>t' , ':tabnew<CR>'   , { remap = false , silent = true , desc = 'New tab' })
 vim.keymap.set('' , '<Esc>c' , ':tabclose<CR>' , { remap = false , silent = true , desc = 'Close tab' })
+
+
+-- system clipboard shortcuts: <leader>{y,Y,p}
+vim.keymap.set({'n', 'v'}, '<leader>y', '"+y')
+vim.keymap.set('n', '<leader>Y', '"+Y')
+vim.keymap.set('n', '<leader>p', '"+p')
