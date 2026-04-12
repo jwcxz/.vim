@@ -32,7 +32,7 @@ filetype plugin indent on
 
 set sessionoptions-=folds
 
-set wildmode=longest,list
+set wildmode=longest:full,full
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
 
 set modeline

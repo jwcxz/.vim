@@ -2,7 +2,7 @@ vim.opt.iskeyword = "a-z,A-Z,48-57,_"
 
 vim.opt.sessionoptions:remove('folds')
 
-vim.opt.wildmode = 'longest,list'
+vim.opt.wildmode = 'longest:full,full'
 vim.opt.suffixes = '.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc'
 
 vim.opt.tabstop = 4
@@ -54,5 +54,11 @@ vim.opt.fillchars = {
                     }
 
 vim.opt.termguicolors = true
+
+vim.opt.winborder = 'rounded'
+vim.opt.pumborder = 'rounded'
+vim.opt.winblend = 15
+vim.opt.pumblend = 15
+vim.api.nvim_set_hl(0, 'PmenuBorder', { link = 'FloatBorder' })
 
 vim.g.clipboard = 'osc52'

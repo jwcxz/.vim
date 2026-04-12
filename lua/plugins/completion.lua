@@ -26,17 +26,12 @@ return {
             signature = {
                 enabled = true,
                 window = {
-                    border = 'rounded',
                     winblend = 15
                 }
             },
 
-            -- TODO: reenable when I find a configuration I like
-            cmdline = { enabled = false },
-
             completion = {
                 menu = {
-                    border = 'rounded',
                     winblend = 15,
                     draw = {
                         columns = {
@@ -70,6 +65,8 @@ return {
                     },
                 },
             },
+
+            cmdline = { enabled = false },
 
             sources = {
                 default = {
