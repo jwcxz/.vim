@@ -1,5 +1,20 @@
 return {
     {
+        'rcarriga/nvim-notify',
+        lazy = false,
+        opts = {
+            background_colour = "#000000",
+            opacity = 85,
+            timeout = 5000
+        },
+        config = function(_, opts)
+            local notify = require("notify")
+            notify.setup(opts)
+            vim.notify = notify
+        end
+    },
+
+    {
         'yorickpeterse/nvim-window',
         opts = {
             chars = {
