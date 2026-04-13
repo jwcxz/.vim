@@ -5,7 +5,8 @@ return {
         opts = {
             background_colour = "#000000",
             opacity = 85,
-            timeout = 5000
+            timeout = 5000,
+            top_down = false
         },
         config = function(_, opts)
             local notify = require("notify")
