@@ -185,4 +185,13 @@ return {
         cmd = "CodeDiff",
     },
 
+    {
+        "https://codeberg.org/andyg/leap.nvim.git",
+        lazy = false,
+        dependencies = { "tpope/vim-repeat" },
+        opts = { },
+        config = function()
+            vim.keymap.set({ 'n', 'x', 'o' }, 's', '<Plug>(leap)')
+        end,
+    },
 }
