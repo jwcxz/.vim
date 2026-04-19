@@ -6,16 +6,16 @@ vim.g.maplocalleader = '\\\\'
 
 
 -- C-{hjkl} resize windows
-vim.keymap.set('' , '<C-h>' , '<C-w><' , { remap = false , silent = true , desc = 'Shrink left' })
-vim.keymap.set('' , '<BS>'  , '<C-w><' , { remap = false , silent = true , desc = 'Shrink left' })
-vim.keymap.set('' , '<C-j>' , '<C-w>-' , { remap = false , silent = true , desc = 'Shrink down' })
-vim.keymap.set('' , '<C-k>' , '<C-w>+' , { remap = false , silent = true , desc = 'Shrink up' })
-vim.keymap.set('' , '<C-l>' , '<C-w>>' , { remap = false , silent = true , desc = 'Shrink right' })
+vim.keymap.set({'n','v','t'} , '<C-h>' , '<C-w><' , { remap = false , silent = true , desc = 'Shrink left' })
+vim.keymap.set({'n','v','t'} , '<BS>'  , '<C-w><' , { remap = false , silent = true , desc = 'Shrink left' })
+vim.keymap.set({'n','v','t'} , '<C-j>' , '<C-w>-' , { remap = false , silent = true , desc = 'Shrink down' })
+vim.keymap.set({'n','v','t'} , '<C-k>' , '<C-w>+' , { remap = false , silent = true , desc = 'Shrink up' })
+vim.keymap.set({'n','v','t'} , '<C-l>' , '<C-w>>' , { remap = false , silent = true , desc = 'Shrink right' })
 
 
 -- C-{n,p} move between buffers
-vim.keymap.set('' , '<C-n>' , ':bn<CR>' , { remap = false , silent = true , desc = 'Next buffer' })
-vim.keymap.set('' , '<C-p>' , ':bp<CR>' , { remap = false , silent = true , desc = 'Previous buffer' })
+vim.keymap.set('n' , '<C-n>' , ':bn<CR>' , { remap = false , silent = true , desc = 'Next buffer' })
+vim.keymap.set('n' , '<C-p>' , ':bp<CR>' , { remap = false , silent = true , desc = 'Previous buffer' })
 
 
 -- ( and ) are used in place of , and ;
@@ -29,10 +29,10 @@ vim.keymap.set('' , ';]' , '<C-w><C-]>' , { remap = false , silent = true , desc
 
 
 -- alt-{n,p} move between tabs, alt-t creates a new tab, alt-c closes one
-vim.keymap.set('' , '<Esc>n' , ':tabnext<CR>'  , { remap = false , silent = true , desc = 'Next tab' })
-vim.keymap.set('' , '<Esc>p' , ':tabprev<CR>'  , { remap = false , silent = true , desc = 'Previous tab' })
-vim.keymap.set('' , '<Esc>t' , ':tabnew<CR>'   , { remap = false , silent = true , desc = 'New tab' })
-vim.keymap.set('' , '<Esc>c' , ':tabclose<CR>' , { remap = false , silent = true , desc = 'Close tab' })
+vim.keymap.set('n' , '<Esc>n' , ':tabnext<CR>'  , { remap = false , silent = true , desc = 'Next tab' })
+vim.keymap.set('n' , '<Esc>p' , ':tabprev<CR>'  , { remap = false , silent = true , desc = 'Previous tab' })
+vim.keymap.set('n' , '<Esc>t' , ':tabnew<CR>'   , { remap = false , silent = true , desc = 'New tab' })
+vim.keymap.set('n' , '<Esc>c' , ':tabclose<CR>' , { remap = false , silent = true , desc = 'Close tab' })
 
 
 -- system clipboard shortcuts: <leader>{y,Y,p}

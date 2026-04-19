@@ -1,4 +1,4 @@
-enabled_lsp_servers = {
+local enabled_lsp_servers = {
     'vimls',        -- npm install -g vim-language-server
     'basedpyright', -- uv tool install basedpyright or brew install basedpyright
     'jsonls',       -- npm install -g vscode-langservers-extracted
@@ -24,7 +24,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     group = lspattach_cfg,
     callback = function(event)
         -- Enable completion triggered by <c-x><c-o>
-        vim.api.nvim_buf_set_option(event.buf, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+        vim.api.nvim_set_option_value('omnifunc', 'v:lua.vim.lsp.omnifunc', { buf = event.buf })
 
         -- Mappings
         local opts = { noremap = true, buffer = event.buf, silent = true }
@@ -49,10 +49,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.keymap.set('n', 'gr', "<cmd>Telescope lsp_references<cr>", opts)
 
         opts.desc = "Show hover info"
-        vim.keymap.set('n', '<leader>k', vim.lsp.buf.hover, opts)
+        vim.keymap.set({'n', 'v'}, '<leader>L', vim.lsp.buf.hover, opts)
 
-        opts.desc = "Show signature"
-        vim.keymap.set({'n','i','v'}, '<C-k>', vim.lsp.buf.signature_help, opts)
+        opts.desc = "Show signature help"
+        vim.keymap.set('n', '<leader>l', vim.lsp.buf.signature_help, opts)
+        vim.keymap.set('i', '<C-l>', function()
+            -- hide the completion signature window if it's active
+            require('blink.cmp')['hide_signature']()
+            vim.lsp.buf.signature_help()
+        end, opts)
 
         opts.desc = "Show line diagnostics"
         vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
