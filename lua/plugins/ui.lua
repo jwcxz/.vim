@@ -137,6 +137,20 @@ return {
     },
 
     {
+        "error311/wayfinder.nvim",
+        opts = { },
+        cmd = 'WayFinder',
+        keys = {
+            { '<leader>wf', '<Plug>(WayfinderOpen)', desc = "Wayfinder" },
+
+            { '<leader>wtn', '<Plug>(WayfinderTrailNext)', desc = "Wayfinder Trail Next" },
+            { '<leader>wtp', '<Plug>(WayfinderTrailPrev)', desc = "Wayfinder Trail Prev" },
+            { '<leader>wto', '<Plug>(WayfinderTrailOpen)', desc = "Wayfinder Trail Open" },
+            { '<leader>wts', '<Plug>(WayfinderTrailShow)', desc = "Wayfinder Trail Show" },
+        }
+    },
+
+    {
         'stevearc/aerial.nvim',
         opts = {
             on_attach = function(bufnr)

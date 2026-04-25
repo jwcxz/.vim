@@ -48,5 +48,6 @@
   "vim-textobj-user": { "branch": "master", "commit": "41a675ddbeefd6a93664a4dc52f302fe3086a933" },
   "vim-todo": { "branch": "master", "commit": "33b6ad93823b30d35397502dcce2c8f68927dc49" },
   "vim-togglecursor": { "branch": "main", "commit": "62d9a3732f149b786ce02b150b5e409c6d7355e8" },
-  "vim-vdb": { "branch": "master", "commit": "6bde0b6fa740428b21e6f06230b94790dd1be078" }
+  "vim-vdb": { "branch": "master", "commit": "6bde0b6fa740428b21e6f06230b94790dd1be078" },
+  "wayfinder.nvim": { "branch": "main", "commit": "b4a1baa078c7815f23d3a403321fdf778adfbc25" }
 }
