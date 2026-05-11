@@ -18,7 +18,7 @@ return {
         ft = { "markdown" },
         keys = {
             {
-                "<leader>p", "<cmd>MarkdownPreviewToggle<CR>",
+                "<leader>mp", "<cmd>MarkdownPreviewToggle<CR>",
                 silent = true, mode = { 'n' }, desc = "Toggle live Markdown preview"
             },
         },
@@ -39,6 +39,14 @@ return {
         dependencies = {
             'nvim-treesitter/nvim-treesitter'
         },
+        cmd = { "RenderMarkdown" },
+        ft = { "markdown", "codecompanion" },
+        keys = {
+            {
+                "<leader>mr", "<cmd>RenderMarkdown buf_toggle<CR>",
+                silent = true, mode = { 'n' }, desc = "Toggle render-markdown"
+            },
+        },
         opts = {
             enabled = false,
             file_types = { 'markdown', 'codecompanion' },
@@ -53,6 +61,11 @@ return {
             },
             -- latex = { enabled = false },
             pipe_table = { style = 'normal' },
+            win_options = {
+                wrap = { default = true, rendered = true },
+                linebreak = { default = true, rendered = true },
+                breakindent = { default = true, rendered = true }
+            }
         }
     },
 
