@@ -51,6 +51,48 @@ return {
                 "<cmd>Neotree toggle show<CR>",
                 silent = true
             }
+        },
+        opts = {
+            source_selector = {
+                winbar = true,
+            },
+
+            window = {
+                mappings = {
+                    ["Y"] = {
+                        function(state)
+                            local node = state.tree:get_node()
+                            local path = node:get_id()
+                            local rel_path = vim.fn.fnamemodify(path, ":.")
+                            vim.fn.setreg("+", rel_path, "c")
+                            vim.notify("Copied: " .. rel_path)
+                        end,
+                        desc = "Copy path to clipboard",
+                    },
+                },
+            },
+
+            default_component_configs = {
+                file_size = { enabled = false },
+                type = { enabled = false },
+                last_modified = { enabled = false},
+                created = { enabled = false },
+                symlink_target = { enabled = false },
+            },
+
+            filesystem = {
+                follow_current_file = { enabled = true },
+                use_libuv_file_watcher = true,
+
+                filtered_items = {
+                    always_show = {
+                        ".gitignore",
+                        ".agents",
+                        ".claude",
+                    }
+                }
+            },
+
         }
     },
 
@@ -68,6 +110,23 @@ return {
         config = function()
             local ts = require('telescope')
             local trouble = require('trouble.sources.telescope')
+
+            local function copy_path_to_clipboard(prompt_bufnr)
+                local actions = require("telescope.actions")
+                local action_state = require("telescope.actions.state")
+                -- Get the current selection from Telescope
+                local entry = action_state.get_selected_entry()
+                local rel_path = vim.fn.fnamemodify(entry.value, ":.")
+
+                if rel_path then
+                    vim.fn.setreg("+", rel_path)
+                    vim.notify("Copied: " .. rel_path)
+                end
+
+                -- Close Telescope after copying (optional)
+                actions.close(prompt_bufnr)
+            end
+
             ts.setup({
                 defaults = {
                     winblend = 15,
@@ -83,18 +142,20 @@ return {
                         },
                     mappings = {
                         i = {
-                            ["<C-u>"] = false,
-                            ["<C-d>"] = false,
-                            ["<C-y>"] = "preview_scrolling_up",
-                            ["<C-e>"] = "preview_scrolling_down",
+                            ["<C-y>"] = copy_path_to_clipboard,
 
                             ["<C-j>"] = "move_selection_next",
                             ["<C-k>"] = "move_selection_previous",
 
                             ["<C-t>"] = trouble.open,
+
+                            ["<C-f>"] = "insert_symbol_i",
                         },
                         n = {
                             ["<C-t>"] = trouble.open,
+
+                            ["Y"] = copy_path_to_clipboard,
+                            ["<C-y>"] = copy_path_to_clipboard,
                         }
                     }
                 },
@@ -133,6 +194,9 @@ return {
             { ';f', '<cmd>Telescope find_files follow=true<cr>', silent = true, remap = false, mode = 'n' },
             { ';;', '<cmd>Telescope buffers<cr>', silent = true, remap = false, mode = 'n' },
             { ';a', '<cmd>Telescope aerial<cr>', silent = true, remap = false, mode = 'n' },
+
+            -- insert mode
+            { '<C-f>', '<cmd>Telescope find_files follow=true<cr>', silent = true, remap = false, mode = 'i' },
         }
     },
 
